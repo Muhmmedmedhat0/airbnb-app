@@ -14,7 +14,10 @@ a {
 * {
   box-sizing: border-box;
 }
-
+p{
+  padding: 0 !important;
+  margin: 0 !important;
+}
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
