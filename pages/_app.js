@@ -2,7 +2,10 @@ import { createTheme, NextUIProvider } from '@nextui-org/react';
 import { ThemeProvider as NextThemesProvider } from 'next-themes';
 import store from '../app/store';
 import { Provider } from 'react-redux';
+import 'bootstrap/dist/css/bootstrap.css';
 import '../styles/globals.scss';
+
+
 
 function MyApp({ Component, pageProps }) {
   const lightTheme = createTheme({
