@@ -1,11 +1,9 @@
 import React from 'react'
 import style from '../../../styles/footer.module.scss';
 import FooterDetails from './FooterDetails';
-
 function footer() {
   return (
    <footer id={style.pFooter} className="p-3">
-
     <FooterDetails/>
     <div className='d-flex justify-content-between row'>
         <div className="col-md-5 p-2">
