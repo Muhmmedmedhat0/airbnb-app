@@ -11,7 +11,7 @@ function Home() {
         <MainNav />
         <FilterNav />
       </header>
-      {/* <h1>Home</h1> */}
+      <h1>Home</h1>
       {/* <Theme /> */}
 
       {/* <Counter /> */}
