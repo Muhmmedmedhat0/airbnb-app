@@ -12,7 +12,7 @@ function Home() {
         <FilterNav />
       </header>
       <h1>Home</h1>
-      {/* <Theme /> */}
+      <Theme />
 
       {/* <Counter /> */}
       <Footer />
