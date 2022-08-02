@@ -1,0 +1,11 @@
+.btn{
+  --ihf-tp-q: #FF385C;
+  background-image: radial-gradient( circle at center,var(--ihf-tp-q) 0%,#e61e4d 27.5%,#e31c5f 40%,#d70466 57.5%,#bd1e59 75%,#bd1e59 100% );
+  color:white;
+  border: none;
+  font-weight: bold;
+  border-radius: 8px;
+  padding: 1% 10% ;
+  margin-left: 5%;
+  margin-top: 2%;
+}
