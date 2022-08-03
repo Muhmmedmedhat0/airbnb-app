@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
+import { AiOutlineClose } from 'react-icons/ai';
 import style from '../../../styles/login.module.scss';
+
 
 function Login(props) {
   let [email,setEmail] = useState("")
@@ -48,8 +50,9 @@ function Login(props) {
 
           <input className={style.btn} type="submit" onClick={(e) =>onLogin(e)} value="login" />
 
-          <input className={style.cBtn} type={"button"} value="close" onClick={() => closePopup()}/>
-
+          
+          <AiOutlineClose className={style.cBtn} onClick={() => closePopup()}>
+          </AiOutlineClose>
         </form>
 
       </div>

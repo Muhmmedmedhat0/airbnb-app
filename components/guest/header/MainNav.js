@@ -1,4 +1,5 @@
 import React from "react";
+import {useState} from "react"
 import Image from "next/image";
 import Link from "next/link";
 import { AiOutlineSearch } from "react-icons/ai";
@@ -8,8 +9,13 @@ import { FaUserCircle } from "react-icons/fa";
 // BiMenuAltLeft;
 
 import style from "../../../styles/header.module.scss";
+import Login from "../../shared/login/Login";
+import Registration from "../../shared/registration/registration";
 
 function MainNav() {
+  const [LpopupBtn,setLpopupBtn] = useState(false);
+  const [RpopupBtn,setRpopupBtn] = useState(false);
+
   const myLoader = ({ src, width, quality }) => {
     return `/assets/${src}?w=${width}`;
   };
@@ -54,12 +60,12 @@ function MainNav() {
               </button>
               <ul className="dropdown-menu">
                 <li>
-                  <a className="dropdown-item" href="#">
+                  <a className="dropdown-item" onClick={()=> setRpopupBtn(true)}>
                     sign up
                   </a>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="#">
+                  <a className="dropdown-item" onClick={()=> setLpopupBtn(true)}>
                     login in
                   </a>
                 </li>
@@ -82,6 +88,8 @@ function MainNav() {
           </div>
         </div>
       </nav>
+      <Login trigger={LpopupBtn} setTrigger={setLpopupBtn}/>
+      <Registration trigger={RpopupBtn} setTrigger={setRpopupBtn}/>
     </>
   );
 }
