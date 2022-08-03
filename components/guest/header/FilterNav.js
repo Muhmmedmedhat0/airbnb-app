@@ -137,6 +137,9 @@ function FilterNav() {
           responsive={responsive}
           disableDotsControls={true}
           controlsStrategy="alternate"
+          // disableSlideInfo={false}
+          // keyboardNavigation={ArrowLeft}
+          // ArrowLeft={false}
         />
         
         </div>

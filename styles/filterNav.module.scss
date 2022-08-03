@@ -1,13 +1,13 @@
 @import "react-alice-carousel/lib/scss/alice-carousel.scss";
 @import "variables.scss";
 .filterBox {
-  padding: 10px;
-  margin: 5px auto;
+  padding-top: 10px;
+  // margin: 5px auto;
   .filterIconsBar {
     text-align: center;
     width: 80%;
     p {
-      font-size: 13px;
+      font-size: 11px;
       text-align: center;
       font-weight: 500;
     }
