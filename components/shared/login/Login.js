@@ -1,7 +1,15 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import style from '../../../styles/login.module.scss';
 
 function Login() {
+  let [email,setEmail] = useState("")
+  let [pass,setPass] = useState("")
+  
+  let onLogin = (e) =>{
+    e.preventDefault()
+   console.log(email,pass)
+  }
+
   return (
     <form >
       <h3>Welcome to Airbnb</h3>
@@ -9,19 +17,30 @@ function Login() {
 
         <div className="col-md-4 p-2">
           <label className="form-label" htmlFor="">Email</label>
-          <input className="form-control" type="text" name="loginusername" required
-              minlength="5"/>
+          <input 
+            className="form-control" 
+            type="email" 
+            name="email" 
+            onChange={e=>setEmail(e.target.value)} 
+            required 
+          />
         </div>
 
         <div className="col-md-4 p-2">
           <label className="form-label" htmlFor="">Password</label>
-          <input className="form-control" type="password" name="userpassword"  required 
-            minlength="4"/>
+          <input 
+            className="form-control" 
+            type="password" 
+            name="password" 
+            onChange={(e) =>setPass(e.target.value)} 
+            required 
+            minLength="4"
+          />
         </div>
 
       </div>
 
-      <input className={style.btn} type="submit" value="login" />
+      <input className={style.btn} type="submit" onClick={(e) =>onLogin(e)} value="login" />
     </form>
   )
 }
