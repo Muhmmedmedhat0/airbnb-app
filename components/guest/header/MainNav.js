@@ -55,17 +55,26 @@ function MainNav() {
               <ul className="dropdown-menu">
                 <li>
                   <a className="dropdown-item" href="#">
-                    Action
+                    sign up
                   </a>
                 </li>
                 <li>
                   <a className="dropdown-item" href="#">
-                    Another action
+                    login in
                   </a>
                 </li>
+                <hr></hr>
                 <li>
                   <a className="dropdown-item" href="#">
-                    Something else here
+                    host your home 
+                  </a>
+                </li><li>
+                  <a className="dropdown-item" href="#">
+                    host an experience
+                  </a>
+                </li><li>
+                  <a className="dropdown-item" href="#">
+                    help
                   </a>
                 </li>
               </ul>
