@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import style from '../../../styles/login.module.scss';
 
-function Login() {
+function Login(props) {
   let [email,setEmail] = useState("")
   let [pass,setPass] = useState("")
   
@@ -10,39 +10,51 @@ function Login() {
    console.log(email,pass)
   }
 
-  return (
-    <form >
-      <h3>Welcome to Airbnb</h3>
-      <div className="row g-3 m-3 d-flex flex-column" >
+  let closePopup = () =>{
+    props.setTrigger(false)
+  }
 
-        <div className="col-md-4 p-2">
-          <label className="form-label" htmlFor="">Email</label>
-          <input 
-            className="form-control" 
-            type="email" 
-            name="email" 
-            onChange={e=>setEmail(e.target.value)} 
-            required 
-          />
-        </div>
+  return (props.trigger) ? (
+    <div className={style.popup} >
+      <div className={style.popupInner}>
+        <form>
+          <h3>Welcome to Airbnb</h3>
+          <div className="row g-3 m-3 d-flex flex-column" >
 
-        <div className="col-md-4 p-2">
-          <label className="form-label" htmlFor="">Password</label>
-          <input 
-            className="form-control" 
-            type="password" 
-            name="password" 
-            onChange={(e) =>setPass(e.target.value)} 
-            required 
-            minLength="4"
-          />
-        </div>
+            <div className="col-md-7 p-2">
+              <label className="form-label" htmlFor="">Email</label>
+              <input 
+                className="form-control" 
+                type="email" 
+                name="email" 
+                onChange={e=>setEmail(e.target.value)} 
+                required 
+              />
+            </div>
+
+            <div className="col-md-7 p-2">
+              <label className="form-label" htmlFor="">Password</label>
+              <input 
+                className="form-control" 
+                type="password" 
+                name="password" 
+                onChange={(e) =>setPass(e.target.value)} 
+                required 
+                minLength="4"
+              />
+            </div>
+
+          </div>
+
+          <input className={style.btn} type="submit" onClick={(e) =>onLogin(e)} value="login" />
+
+          <input className={style.cBtn} type={"button"} value="close" onClick={() => closePopup()}/>
+
+        </form>
 
       </div>
-
-      <input className={style.btn} type="submit" onClick={(e) =>onLogin(e)} value="login" />
-    </form>
-  )
+    </div>
+  ) : "";
 }
 
 export default Login
