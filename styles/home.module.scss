@@ -8,10 +8,17 @@
 
 .homeCardBox{
     width: 24%;
-    // border: 1px solid #eee;
-    // padding: 5px;
+    position: relative;
     border-radius: 30px;
     img{
-        border-radius: 30px;
+        border-radius: 15px;
+    }
+    .CardBoxHeartIcon{
+        position: absolute;
+        top: 10px;
+        font-size: 22px;
+        color: #EEE;
+        z-index: 1000;
+        right: 20px;
     }
 }
