@@ -80,8 +80,8 @@ function FilterNav() {
       <Image
         loader={myLoader}
         src="8b44f770-7156-4c7b-b4d3-d92549c8652f.jpg"
-        width={30}
-        height={30}
+        width={20}
+        height={20}
         alt="fkjjf"
       />
       <p>Arctic</p>
@@ -90,8 +90,8 @@ function FilterNav() {
       <Image
         loader={myLoader}
         src="50861fca-582c-4bcc-89d3-857fb7ca6528.jpg"
-        width={30}
-        height={30}
+        width={20}
+        height={20}
         alt="fkjjf"
       />
       <p>Design</p>
@@ -100,8 +100,8 @@ function FilterNav() {
       <Image
         loader={myLoader}
         src="52c8d856-33d0-445a-a040-a162374de100.jpg"
-        width={30}
-        height={30}
+        width={20}
+        height={20}
         alt="fkjjf"
       />
       <p>Shared homes</p>
@@ -110,8 +110,8 @@ function FilterNav() {
       <Image
         loader={myLoader}
         src="4221e293-4770-4ea8-a4fa-9972158d4004.jpg"
-        width={30}
-        height={30}
+        width={20}
+        height={20}
         alt="fkjjf"
       />
       <p>Caves</p>
@@ -120,8 +120,8 @@ function FilterNav() {
       <Image
         loader={myLoader}
         src="957f8022-dfd7-426c-99fd-77ed792f6d7a.jpg"
-        width={30}
-        height={30}
+        width={20}
+        height={20}
         alt="fkjjf"
       />
       <p>Surfing</p>
