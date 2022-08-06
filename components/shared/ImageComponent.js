@@ -10,8 +10,8 @@ export default function ImageComponent(props) {
     <Image
             loader={myLoader}
             src={props.src}
-            width="240"
-            height="240"
+            width={props.width}
+            height={props.height}
             className="d-block w-100"
             alt="..."
           />

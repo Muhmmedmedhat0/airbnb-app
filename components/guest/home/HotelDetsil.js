@@ -38,7 +38,7 @@ function HotelDetsil() {
           <p>2 guests1 bedroom1 bed1 bath</p>
         </div>
         <div>
-          <ImageComponent src="/assets/avaters/blank.png"/>
+          <ImageComponent src="/assets/avaters/blank.png" width='50' height='50'/>
         </div>
       </div>
     </div>
