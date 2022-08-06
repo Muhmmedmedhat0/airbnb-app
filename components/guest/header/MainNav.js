@@ -43,7 +43,7 @@ function MainNav() {
           </div>
           <div className="d-flex align-items-center ">
             <div className={style.hostLink}>
-              <Link href="/">Become a Host</Link>
+              <Link href="/host">Become a Host</Link>
             </div>
             <div>
               <GiWorld />
