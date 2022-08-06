@@ -1,0 +1,26 @@
+.imagesSection {
+  border-radius: 20px;
+  overflow: hidden;
+  //   height: 200px !important;
+  border-radius: 10px;
+  justify-content: center;
+  .mainImage {
+    width: 50%;
+  }
+  .spiltImagesSection {
+    width: 50%;
+    height: auto;
+    justify-content: center;
+
+    .spiltImags {
+      width: 50%;
+      height: auto;
+      justify-content: center;
+      align-self: center;
+    }
+  }
+}
+
+.hostInfo{
+    
+}

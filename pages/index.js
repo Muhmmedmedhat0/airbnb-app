@@ -9,8 +9,6 @@ import Cards from "../components/guest/home/Cards";
 import style from "../styles/home.module.scss";
 
 function Home() {
-  const [popupBtn, setPopupBtn] = useState(false);
-
   return (
     <>
       <header className={`fixed-top ${style.homeNavs}`}>
@@ -19,16 +17,7 @@ function Home() {
       </header>
       <main className={style.homeContent}>
         <Cards />
-        <Theme />
-        <input
-          style={{ margin: "10%" }}
-          type={"button"}
-          value="login"
-          onClick={() => setPopupBtn(true)}
-        />
-        <Login trigger={popupBtn} setTrigger={setPopupBtn} />
-      </main>
-      {/* <Counter /> */}
+       </main>
       <Footer />
     </>
   );
