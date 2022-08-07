@@ -7,20 +7,20 @@ import HotelOffers from "./HotelOffers";
 function HostDetailsInfo() {
   return (
     <div className={`${style.infoSection}`}>
-      <section className={` ${style.hostInfo}  d-flex`}>
-        <div className="">
-          <p>Island hosted by Ian</p>
+      <section className={` ${style.hostInfo}  d-flex justify-content-between`}>
+        <div >
+          <h4>Island hosted by Ian</h4>
           <p>2 guests1 bedroom1 bed1 bath</p>
         </div>
         <div className="rounded-circle" style={{overflow:"hidden"}}>
           <ImageComponent
-            src="/assets/avaters/blank.png"
-            width="50"
-            height="50"
+            src="/assets/avaters/150-1.jpg"
+            width="60"
+            height="60"
           />
         </div>
       </section>
-      <section className={`  d-flex`}>
+      <section className={`${style.furryFriend} d-flex`}>
         <svg
           viewBox="0 0 32 32"
           xmlns="http://www.w3.org/2000/svg"
@@ -36,11 +36,11 @@ function HostDetailsInfo() {
           <path d="M13.693 13.934a4 4 0 0 1 5.283.595l.292.366 4.768 6.755a4 4 0 0 1 .596 3.342 4.004 4.004 0 0 1-4.496 2.913l-.403-.084-3.474-.932a1 1 0 0 0-.518 0l-3.474.932a4 4 0 0 1-2.941-.347l-.401-.249a4.004 4.004 0 0 1-1.19-5.207l.229-.368 4.768-6.755a4 4 0 0 1 .961-.96zm3.756 1.889a2 2 0 0 0-2.979.09l-.104.136-4.838 6.861a2 2 0 0 0 2.048 3.017l.173-.038 3.992-1.07a1 1 0 0 1 .518 0l3.964 1.063.143.034a2 2 0 0 0 2.132-2.963l-4.947-7.014zM27 12a4 4 0 1 1 0 8 4 4 0 0 1 0-8zM5 12a4 4 0 1 1 0 8 4 4 0 0 1 0-8zm22 2a2 2 0 1 0 0 4 2 2 0 0 0 0-4zM5 14a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm6-10a4 4 0 1 1 0 8 4 4 0 0 1 0-8zm10 0a4 4 0 1 1 0 8 4 4 0 0 1 0-8zM11 6a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm10 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"></path>
         </svg>
         <div>
-          <p>Furry friends welcome</p>
+          <h5>Furry friends welcome</h5>
           <p>Bring your pets along for the stay.</p>
         </div>
       </section>
-      <section className={``}>
+      <section className={`${style.airCover}`}>
         <h3>
           <span>Air</span>Cover
         </h3>

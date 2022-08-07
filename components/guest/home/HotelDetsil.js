@@ -1,14 +1,15 @@
 import React from "react";
-import ImageComponent from "../../shared/ImageComponent";
+import Link from 'next/link';
 import DetailsImages from "./DetailsImages";
 import style from "../../../styles/hotel.module.scss";
 import BookingForm from "./BookingForm";
 import HostDetailsInfo from "./HostDetailsInfo";
-
+import {AiFillStar,AiFillHeart} from 'react-icons/ai';
+import {IoShareOutline} from 'react-icons/io5';
 function HotelDetsil() {
   const hotel = {
     id: 1,
-    title: "njndj",
+    title: "Nature Observatory on Secluded Island",
     rate: 44,
     price: 555,
     images: [
@@ -23,15 +24,15 @@ function HotelDetsil() {
   return (
     <div className={style.hotelDetails}>
       <div className="container">
-        <div>
-          <h1>{hotel.title}</h1>
-          <div className="d-flex justify-content-between">
+        <div className={style.mainHotelInfo}>
+          <h2>{hotel.title}</h2>
+          <div className={` ${style.mainHotelInfoContent} d-flex justify-content-between`}>
             <p>
-              <span>Rate 4.61</span> <span>18 reviews</span>
-              <span>Skålen, Örebro län, Sweden</span>
+              <span><AiFillStar /> 4.61. </span> <Link href=''> 18 reviews </Link>
+              <Link href=''> Skålen, Örebro län, Sweden</Link>
             </p>
             <p>
-              <span> Share</span> <span>Save</span>
+              <span> <IoShareOutline/> Share</span> <span><AiFillHeart/>Save</span>
             </p>
           </div>
         </div>
@@ -40,11 +41,9 @@ function HotelDetsil() {
           className={`${style.info} d-flex justify-content-between flex-wrap`}
         >
           <HostDetailsInfo />
-          <div className="">
-            <BookingForm />
-            <p>Report this listing</p>
+          <BookingForm />
+            {/* <p>Report this listing</p> */}
           </div>
-        </div>
       </div>
     </div>
   );

@@ -1,10 +1,21 @@
-.hotelDetails{
-  padding-top:100px ;
+@import "./_variables.scss";
+.hotelDetails {
+  padding-top: 100px;
+  .mainHotelInfo {
+    p {
+      font-weight: 500;
+    }
+    a {
+      text-decoration: underline;
+    }
+    .mainHotelInfoContent {
+      margin-bottom: 20px;
+    }
+  }
 }
 .imagesSection {
   border-radius: 20px;
   overflow: hidden;
-  //   height: 200px !important;
   border-radius: 10px;
   justify-content: center;
   .mainImage {
@@ -13,24 +24,67 @@
   .spiltImagesSection {
     width: 50%;
     height: auto;
-    // justify-content: center;
-
     .spiltImags {
       width: 50%;
-      height: auto;
-      // justify-content: center;
-      // align-self: center;
+      height: auto; 
     }
   }
 }
 
-.hostInfo{
-    
-}
-.infoSection{
+.infoSection {
   width: 55%;
- section{
-  padding-bottom: 20px;
-  border-bottom: 1px solid #eee;
- }
+  padding-top: 20px;
+  section {
+    padding-bottom: 20px;
+    padding-top: 20px;
+    border-bottom: 1px solid #eee;
+  }
+
+  .hostInfo {
+    p {
+      letter-spacing: 1px;
+      font-size: 17px;
+      font-weight: 300;
+    }
+  }
+  .furryFriend{
+    align-self: center;
+    align-items: center ;
+    padding-top: 20px;
+    div{
+      margin-left: 20px;
+    }
+  }
+  .airCover{
+    
+    h3{
+      font-size: 29px;
+      font-weight: 600;
+    }
+    span{
+      color: $mainColor;
+
+    }
+  }
+}
+
+
+
+///////////////////////////////////// Booking component   ///////////////////////////////////
+///////////////////// 
+//////////// 
+///////
+/// 
+// 
+
+.bookinSection{
+  padding: 20px;
+  border-radius: 10px;
+  border:1px solid #eee;
+  width: 37%;
+  box-sizing: border-box;
+  display: inline-block;
+.formSection{
+  // width: 40px;
+}
 }

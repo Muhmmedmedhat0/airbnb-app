@@ -7,6 +7,7 @@ function CardSlider({dumImg,hotID}) {
   };
   console.log(dumImg)
   return (
+    
     <div
       id={`carouselExampleIndicators${hotID}`}
       className="carousel slide"
