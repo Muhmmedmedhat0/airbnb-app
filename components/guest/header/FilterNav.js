@@ -117,6 +117,8 @@ function FilterNav() {
     </div>,
   ];
   return (
+    <div className={style.filternavBorder}>
+
     <div className="container ">
       <div
         className={`d-flex flex-wrap  justify-content-around  ${style.filterBox}`}
@@ -137,6 +139,7 @@ function FilterNav() {
           <p>filter</p>
           <AiOutlineFilter />
         </div>
+      </div>
       </div>
     </div>
   );

@@ -11,46 +11,41 @@ import { FaUserCircle } from "react-icons/fa";
 import style from "../../../styles/header.module.scss";
 import Login from "../../shared/login/Login";
 import Registration from "../../shared/registration/registration";
+import ImageComponent from "../../shared/ImageComponent";
 
 function MainNav() {
   const [LpopupBtn,setLpopupBtn] = useState(false);
   const [RpopupBtn,setRpopupBtn] = useState(false);
-
-  const myLoader = ({ src, width, quality }) => {
-    return `/assets/${src}?w=${width}`;
-  };
-  return (
+ return (
     <>
       <nav className={`navbar navbar-expand-lg bg-white  ${style.mainNav}`}>
         <div className="container">
           <a className="navbar-brand" href="#">
             <div className="d-flex align-items-center">
-              <Image
-                loader={myLoader}
-                src="airbnb.png"
-                alt="Picture of the author"
-                width={30}
-                height={30}
+              <ImageComponent
+                src="/assets/airbnb.png"
+                width="30"
+                height="30"
               />
               <span>airbnb</span>
             </div>
           </a>
-          <div className={`d-flex  align-items-center ${style.navSearch}`}>
+          <div className={`d-flex align-items-center ${style.navSearch}`}>
             <p>Anywhere </p>|<p>Any week</p>|<p>Add guests</p>
             <p className={style.searchIcon}>
               <AiOutlineSearch />
             </p>
           </div>
-          <div className="d-flex align-items-center ">
+          <div className="d-flex align-items-center justify-content-between ">
             <div className={style.hostLink}>
               <Link href="/host">Become a Host</Link>
             </div>
             <div>
               <GiWorld />
             </div>
-            <div className="dropdown">
+            <div className={`dropdown ${style.dropBox}`}>
               <button
-                className={`btn ${style.boxSh} `}
+                className={`btn ${style.bosStyle}`}
                 type="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"

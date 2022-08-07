@@ -30,8 +30,24 @@
   .hostLink {
     font-weight: 500;
     font-size: 13px;
+    margin-right: 15px;
+    // margin-left: -20px
   }
   .boxStyle {
     @include boxShadoeStyle;
+  }
+}
+.dropBox{
+  margin-left: 15px;
+  border-radius: 30px;
+  border-color: #eee ;
+
+  :hover{
+    outline: 0;
+    border-color: #eee;
+    box-sizing: border-box;
+  }
+  :focus{
+    border-color: #eee ;
   }
 }

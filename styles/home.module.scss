@@ -3,7 +3,7 @@
     // z-index: 0;
 }
 .homeContent{
-    padding-top: 200px;
+    padding-top: 250px;
 }
 
 .homeCardBox{
@@ -20,5 +20,11 @@
         color: #EEE;
         z-index: 1000;
         right: 20px;
+    }
+}
+@media (max-width: 768px) {
+    .homeCardBox{
+        margin: 10px auto;
+        width: 49%;
     }
 }
