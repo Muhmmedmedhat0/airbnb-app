@@ -26,7 +26,7 @@
     height: auto;
     .spiltImags {
       width: 50%;
-      height: auto; 
+      height: auto;
     }
   }
 }
@@ -47,44 +47,67 @@
       font-weight: 300;
     }
   }
-  .furryFriend{
+  .furryFriend {
     align-self: center;
-    align-items: center ;
+    align-items: center;
     padding-top: 20px;
-    div{
+    div {
       margin-left: 20px;
     }
   }
-  .airCover{
-    
-    h3{
+  .airCover {
+    h3 {
       font-size: 29px;
       font-weight: 600;
     }
-    span{
+    span {
       color: $mainColor;
-
     }
   }
 }
 
-
-
 ///////////////////////////////////// Booking component   ///////////////////////////////////
-///////////////////// 
-//////////// 
+/////////////////////
+////////////
 ///////
-/// 
-// 
+///
+//
 
-.bookinSection{
+.bookinSection {
   padding: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   border-radius: 10px;
-  border:1px solid #eee;
+  border: 1px solid #eee;
   width: 37%;
   box-sizing: border-box;
-  display: inline-block;
-.formSection{
-  // width: 40px;
-}
+  // display: inline-block;
+  box-shadow: $boxShadow;
+
+  .formSection {
+     form{
+      div{
+        div{
+          width: 50%;
+        }
+      }
+     }
+    button {
+      display: inline-block;
+      margin-top: 20px;
+      margin-left: 20%;
+      --ihf-tp-q: #ff385c;
+      border: 0;
+      padding: 10px 60px;
+      background-image: radial-gradient(
+        circle at center,
+        var(--ihf-tp-q) 0%,
+        #e61e4d 27.5%,
+        #e31c5f 40%,
+        #d70466 57.5%,
+        #bd1e59 75%,
+        #bd1e59 100%
+      );
+    }
+  }
 }

@@ -19,24 +19,28 @@ function BookingForm() {
       </div>
       <div className={style.formSection}>
         <form>
-          <div className="mb-3">
-            <input
-              type="date"
-              className="form-control"
-              // id="exampleInputEmail1"
-              placeholder="check in"
-              // aria-describedby="emailHelp"
-            />
-          </div>
-          <div className="mb-3">
-            <label htmlFor="exampleInputPassword1" className="form-label">
-              Password
-            </label>
-            <input
-              type="date"
-              className="form-control"
-              id="exampleInputPassword1"
-            />
+          <div className="d-flex flex-wrap">
+            <div className="mb-3">
+              <label htmlFor="checkInID" className="form-label">
+                Check In
+              </label>
+              <input
+                type="date"
+                className="form-control"
+                id="checkInID"
+                placeholder="check in"
+              />
+            </div>
+            <div className="mb-3">
+              <label htmlFor="exampleInputPassword1" className="form-label">
+                Check Out
+              </label>
+              <input
+                type="date"
+                className="form-control"
+                id="exampleInputPassword1"
+              />
+            </div>
           </div>
           <select className="form-select" aria-label="Default select example">
             <option selected>Open this select menu</option>
