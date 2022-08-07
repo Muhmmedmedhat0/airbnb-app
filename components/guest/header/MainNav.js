@@ -21,7 +21,7 @@ function MainNav() {
   };
   return (
     <>
-      <nav className={`navbar navbar-expand-lg  ${style.mainNav}`}>
+      <nav className={`navbar navbar-expand-lg bg-white  ${style.mainNav}`}>
         <div className="container">
           <a className="navbar-brand" href="#">
             <div className="d-flex align-items-center">

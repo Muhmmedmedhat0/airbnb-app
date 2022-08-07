@@ -1,6 +1,9 @@
 import React from "react";
 import ImageComponent from "../../shared/ImageComponent";
 import DetailsImages from "./DetailsImages";
+import style from "../../../styles/hotel.module.scss";
+import BookingForm from "./BookingForm";
+import HostDetailsInfo from "./HostDetailsInfo";
 
 function HotelDetsil() {
   const hotel = {
@@ -18,27 +21,29 @@ function HotelDetsil() {
     date: 7 - 7 - 2005,
   };
   return (
-    <div className="container">
-      <div>
-        <h1>{hotel.title}</h1>
-        <div className="d-flex justify-content-between">
-          <p>
-            <span>Rate 4.61</span> <span>18 reviews</span>
-            <span>Skålen, Örebro län, Sweden</span>
-          </p>
-          <p>
-            <span> Share</span> <span>Save</span>
-          </p>
-        </div>
-      </div>
-      <DetailsImages images={hotel.images} />
-      <div >
-        <div className="">
-          <p>Island hosted by Ian</p>
-          <p>2 guests1 bedroom1 bed1 bath</p>
-        </div>
+    <div className={style.hotelDetails}>
+      <div className="container">
         <div>
-          <ImageComponent src="/assets/avaters/blank.png" width='50' height='50'/>
+          <h1>{hotel.title}</h1>
+          <div className="d-flex justify-content-between">
+            <p>
+              <span>Rate 4.61</span> <span>18 reviews</span>
+              <span>Skålen, Örebro län, Sweden</span>
+            </p>
+            <p>
+              <span> Share</span> <span>Save</span>
+            </p>
+          </div>
+        </div>
+        <DetailsImages images={hotel.images} />
+        <div
+          className={`${style.info} d-flex justify-content-between flex-wrap`}
+        >
+          <HostDetailsInfo />
+          <div className="">
+            <BookingForm />
+            <p>Report this listing</p>
+          </div>
         </div>
       </div>
     </div>

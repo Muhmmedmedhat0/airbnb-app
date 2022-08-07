@@ -1,3 +1,6 @@
+.hotelDetails{
+  padding-top:100px ;
+}
 .imagesSection {
   border-radius: 20px;
   overflow: hidden;
@@ -10,17 +13,24 @@
   .spiltImagesSection {
     width: 50%;
     height: auto;
-    justify-content: center;
+    // justify-content: center;
 
     .spiltImags {
       width: 50%;
       height: auto;
-      justify-content: center;
-      align-self: center;
+      // justify-content: center;
+      // align-self: center;
     }
   }
 }
 
 .hostInfo{
     
+}
+.infoSection{
+  width: 55%;
+ section{
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee;
+ }
 }
