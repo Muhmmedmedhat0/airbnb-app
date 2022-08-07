@@ -5,8 +5,10 @@ function Banner() {
   return (
     <div className={style.container}>
       <header className={style.header}>You can host anything, anywhere</header>
-      <section>
-
+      <section className={style.section}>
+        <p className={style.para}>Questions about hosting? Ask a Superhost.</p>
+        <button className={style.btn}>Learn more</button>
+        
       </section>
     </div>
   )

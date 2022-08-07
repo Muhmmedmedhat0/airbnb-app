@@ -1,0 +1,39 @@
+.Mycontainer{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  text-align: center;
+}
+.container{
+  width: 50%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  text-align: center;
+}
+.bg{
+  background: 
+  linear-gradient(to right,#E61E4D 0%,#E31C5F 50%,#D70466 100%),
+  radial-gradient(circle at center,#FF385C 0%,#E61E4D 27.5%,#E31C5F 40%,#D70466 57.5%,#BD1E59 75%,#BD1E59 100%),
+  linear-gradient(to right,#BD1E59 0%,#92174D 50%,#861453 100%),
+  radial-gradient(circle at center,#D70466 0%,#BD1E59 30%,#92174D 55%,#861453 72.5%,#6C0D63 90%,#6C0D63 100%),
+  linear-gradient(to right,#59086E 0%,#460479 50%,#440589 100%),
+  radial-gradient(circle at center,#6C0D63 0%,#59086E 30%,#460479 55%,#440589 72.5%,#3B07BB 90%,#3B07BB 100%); 
+}
+.para{
+  color: white;
+  font-size: 4em;
+  text-align: center;
+}
+.cBtn{
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  cursor: pointer;
+}

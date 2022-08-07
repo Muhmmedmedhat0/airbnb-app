@@ -15,7 +15,9 @@ function HostNav() {
             </div>
           </Link>
           
-          <button className={styleBtn.btn}>Try hosting</button>
+          <Link href="/host/intro">
+           <button className={styleBtn.btn}>Try hosting</button>
+           </Link>
 
         </div>
       </nav>
