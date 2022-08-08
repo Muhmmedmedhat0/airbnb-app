@@ -25,9 +25,10 @@ function Registration(props) {
           <div className="row g-3 m-3 d-flex flex-column" >
 
             <div className="col-md-8 p-2">
-              <label className="form-label" htmlFor="" placeholder='Enter your name'>Your Name</label>
+              <label className="form-label" htmlFor="" >Your Name</label>
               <input 
                 className="form-control" 
+                placeholder='Enter your name'
                 type="text" 
                 name="firstname"
                 onChange={(e) =>setFname(e.target.value)} 
@@ -37,9 +38,10 @@ function Registration(props) {
             </div>
 
             <div className="col-md-8 p-2">
-              <label className="form-label" htmlFor="" placeholder='Enter your email'>Your Email</label>
+              <label className="form-label" htmlFor="" >Your Email</label>
               <input 
                 className="form-control" 
+                placeholder='Enter your email'
                 type="email" 
                 name="email"
                 onChange={(e) =>setEmail(e.target.value)} 
@@ -48,9 +50,10 @@ function Registration(props) {
             </div>
 
             <div className="col-md-8 p-2">
-              <label className="form-label" htmlFor="" placeholder='Password'>Password</label>
+              <label className="form-label" htmlFor="" >Password</label>
               <input 
                 className="form-control" 
+                placeholder='Password'
                 type="password" 
                 name="password"
                 onChange={(e) =>setPass(e.target.value)} 
