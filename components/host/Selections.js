@@ -1,20 +1,30 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Link from "next/link";
 import style from "../../styles/becomeHost.module.scss"
 
-function Selections() {
+function Selections(props) {
+  let [soptions, setOptions] = useState([])
+  useEffect(()=>{
+   setOptions(props.selectOptions)
+   console.log(props)
+  },[props])
+
   return (
     <div className={style.container}>
       <div className={style.sContainer}>
-        <button className={style.sBtn}>Apartment</button>
-        <button className={style.sBtn}>House</button>
-        <button className={style.sBtn}>Secondary unit</button>
-        <button className={style.sBtn}>Uniqe space</button>
-        <button className={style.sBtn}>bed and breakfast</button>
+        {soptions.map((item)=>{
+          return <button className={style.sBtn}>{item}</button>
+        })
+        }
+       
       </div>
       <div className={style.Bcontainer}>
-        <button className={style.backBtn}>Back</button>
-        <button className={style.nextBtn}>Next</button>
+        <Link href={`${props.nextHref}`}>
+          <button className={style.backBtn}>Back</button>
+        </Link>
+        <Link href={`${props.backHref}`}>
+          <button className={style.nextBtn}>Next</button>
+        </Link>
       </div>
     </div>
   )

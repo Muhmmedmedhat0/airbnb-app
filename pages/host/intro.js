@@ -13,7 +13,7 @@ function intro() {
             <Video src="https://a0.muscache.com/v/8b/04/8b0456c7-13f8-54bc-889a-7cf549f144a3/8b0456c713f854bc889a7cf549f144a3_4000k_1.mp4"/>
          </div>
          <div className="">
-            <Content text="Become a Host in 10 easy steps" href="/host/becomeHost" btnText="Let's Go"/>
+            <Content text="Become a Host in 10 easy steps" href="/host/becomeHost/placeType" btnText="Let's Go"/>
          </div>    
     </div>
     </>
