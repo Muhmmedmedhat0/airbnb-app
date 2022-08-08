@@ -1,11 +1,11 @@
 import React from "react";
-import Link from 'next/link';
+import Link from "next/link";
 import DetailsImages from "./DetailsImages";
-import style from "../../../styles/hotel.module.scss";
+import style from "../../../../styles/hotel.module.scss";
 import BookingForm from "./BookingForm";
 import HostDetailsInfo from "./HostDetailsInfo";
-import {AiFillStar,AiFillHeart} from 'react-icons/ai';
-import {IoShareOutline} from 'react-icons/io5';
+import { AiFillStar, AiFillHeart } from "react-icons/ai";
+import { IoShareOutline } from "react-icons/io5";
 function HotelDetsil() {
   const hotel = {
     id: 1,
@@ -26,13 +26,25 @@ function HotelDetsil() {
       <div className="container">
         <div className={style.mainHotelInfo}>
           <h2>{hotel.title}</h2>
-          <div className={` ${style.mainHotelInfoContent} d-flex justify-content-between`}>
+          <div
+            className={` ${style.mainHotelInfoContent} d-flex justify-content-between`}
+          >
             <p>
-              <span><AiFillStar /> 4.61. </span> <Link href=''> 18 reviews </Link>
-              <Link href=''> Skålen, Örebro län, Sweden</Link>
+              <span>
+                <AiFillStar /> 4.61.{" "}
+              </span>{" "}
+              <Link href=""> 18 reviews </Link>
+              <Link href=""> Skålen, Örebro län, Sweden</Link>
             </p>
             <p>
-              <span> <IoShareOutline/> Share</span> <span><AiFillHeart/>Save</span>
+              <span>
+                {" "}
+                <IoShareOutline /> Share
+              </span>{" "}
+              <span>
+                <AiFillHeart />
+                Save
+              </span>
             </p>
           </div>
         </div>
@@ -41,9 +53,12 @@ function HotelDetsil() {
           className={`${style.info} d-flex justify-content-between flex-wrap`}
         >
           <HostDetailsInfo />
-          <BookingForm />
+          <div className="formContainer">
+            <BookingForm />
+
             {/* <p>Report this listing</p> */}
           </div>
+        </div>
       </div>
     </div>
   );

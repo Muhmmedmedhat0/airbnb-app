@@ -1,7 +1,6 @@
 import React from "react";
-import Image from "next/image";
-import style from "../../../styles/hotel.module.scss";
-import ImageComponent from "../../shared/ImageComponent";
+import style from "../../../../styles/hotel.module.scss";
+import ImageComponent from "../../../shared/ImageComponent";
 
 function DetailsImages() {
   

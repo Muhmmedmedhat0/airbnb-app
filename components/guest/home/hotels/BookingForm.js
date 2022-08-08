@@ -1,7 +1,7 @@
 import React from "react";
 import { AiFillStar } from "react-icons/ai";
 import Link from "next/link";
-import style from "../../../styles/hotel.module.scss";
+import style from "../../../../styles/hotel.module.scss";
 
 function BookingForm() {
   return (

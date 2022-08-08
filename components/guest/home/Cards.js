@@ -121,6 +121,7 @@ function Cards() {
   }, []);
   return (
     <div className="container ">
+      
       <div className="d-flex flex-wrap justify-content-between">
         {dummyData.map((dum) => (
           <div key={dum.id} className={style.homeCardBox}>

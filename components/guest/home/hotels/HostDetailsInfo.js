@@ -1,6 +1,6 @@
 import React from "react";
-import ImageComponent from "../../shared/ImageComponent";
-import style from "../../../styles/hotel.module.scss";
+import ImageComponent from "../../../shared/ImageComponent";
+import style from "../../../../styles/hotel.module.scss";
 import Link from "next/link";
 import HotelOffers from "./HotelOffers";
 

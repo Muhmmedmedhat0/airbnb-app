@@ -7,7 +7,6 @@ function CardSlider({dumImg,hotID}) {
   };
   console.log(dumImg)
   return (
-    
     <div
       id={`carouselExampleIndicators${hotID}`}
       className="carousel slide"
@@ -51,9 +50,7 @@ function CardSlider({dumImg,hotID}) {
           {" "}
           <Image
             loader={myLoader}
-            src={dumImg[1]}
-            
-            // src="https://images.unsplash.com/photo-1614369886774-d25f75dcc38e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464&q=80"
+            src={dumImg[1]}   
             width="500"
             height="500"
             className="d-block w-100"

@@ -72,16 +72,17 @@
 ///////
 ///
 //
-
+.formContainer{
+  width: 37%;
+// padding: 20px;
+}
 .bookinSection {
-  padding: 20px;
+  padding: 30px;
   margin-top: 20px;
   margin-bottom: 20px;
   border-radius: 10px;
   border: 1px solid #eee;
-  width: 37%;
   box-sizing: border-box;
-  // display: inline-block;
   box-shadow: $boxShadow;
 
   .formSection {
@@ -109,5 +110,9 @@
         #bd1e59 100%
       );
     }
+  }
+  a{text-decoration: underline;}
+  input[type="date"] {
+    padding: 15px;
   }
 }
