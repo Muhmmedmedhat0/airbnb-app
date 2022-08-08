@@ -24,7 +24,7 @@ function Login(props) {
           <div className="row g-3 m-3 d-flex flex-column" >
 
             <div className="col-md-7 p-2">
-              <label className="form-label" htmlFor="">Email</label>
+              <label className="form-label" htmlFor="" placeholder='Enter your email'>Email</label>
               <input 
                 className="form-control" 
                 type="email" 
@@ -35,7 +35,7 @@ function Login(props) {
             </div>
 
             <div className="col-md-7 p-2">
-              <label className="form-label" htmlFor="">Password</label>
+              <label className="form-label" htmlFor="" placeholder='Password'>Password</label>
               <input 
                 className="form-control" 
                 type="password" 

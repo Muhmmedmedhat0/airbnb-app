@@ -5,13 +5,12 @@ import style from '../../../styles/registration.module.scss';
 
 function Registration(props) {
   let [Fname,setFname] = useState("")
-  let [Lname,setLname] = useState("")
   let [email,setEmail] = useState("")
   let [pass,setPass] = useState("")
 
   let onRegister = (e) =>{
     e.preventDefault()
-    console.log(Fname,Lname,email,pass)
+    console.log(Fname,email,pass)
   }
 
   let closePopup = () =>{
@@ -26,7 +25,7 @@ function Registration(props) {
           <div className="row g-3 m-3 d-flex flex-column" >
 
             <div className="col-md-8 p-2">
-              <label className="form-label" htmlFor="">First Name</label>
+              <label className="form-label" htmlFor="" placeholder='Enter your name'>Your Name</label>
               <input 
                 className="form-control" 
                 type="text" 
@@ -38,19 +37,7 @@ function Registration(props) {
             </div>
 
             <div className="col-md-8 p-2">
-              <label className="form-label" htmlFor="">Last Name</label>
-              <input 
-                className="form-control" 
-                type="text" 
-                name="lastname"
-                onChange={(e) =>setLname(e.target.value)} 
-                required 
-                minLength="3"
-              />
-            </div>
-
-            <div className="col-md-8 p-2">
-              <label className="form-label" htmlFor="">Email</label>
+              <label className="form-label" htmlFor="" placeholder='Enter your email'>Your Email</label>
               <input 
                 className="form-control" 
                 type="email" 
@@ -61,7 +48,7 @@ function Registration(props) {
             </div>
 
             <div className="col-md-8 p-2">
-              <label className="form-label" htmlFor="">Password</label>
+              <label className="form-label" htmlFor="" placeholder='Password'>Password</label>
               <input 
                 className="form-control" 
                 type="password" 
