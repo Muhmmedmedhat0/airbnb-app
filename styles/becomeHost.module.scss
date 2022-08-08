@@ -15,7 +15,17 @@
   justify-content: center;
   flex-wrap: nowrap;
   flex-direction: column;
-  text-align: center;
+}
+.sContainer{
+  margin-top: 5%;
+  width: 100%;
+  height: 90%;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  flex-direction: column;
 }
 .bg{
   background: 
@@ -29,7 +39,60 @@
 .para{
   color: white;
   font-size: 4em;
-  text-align: center;
+  
+}
+.sBtn{
+  width: 60%;
+  margin: 1%;
+  padding: 4.5%;
+  font-weight: 500;
+  font-size: 1.25em;
+  text-align: left;
+  background-color: white;
+  border: 1px solid rgb(221, 221, 221);
+  border-radius: 12px;
+  outline: none;
+}
+.sBtn:hover{
+  border-color: transparent ;
+  box-shadow: rgb(34 34 34) 0px 0px 0px 2px;
+}
+.sBtn:focus{
+//selected
+  border-color: transparent ;
+  box-shadow: rgb(34 34 34) 0px 0px 0px 2px;
+  background-color: rgb(247, 247, 247) ;
+}
+.Bcontainer{
+  width: 100%;
+  height: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+.backBtn{
+  border: none;
+  background-color: white;
+  margin: 3%;
+  font-weight: 500;
+  font-size: 1.20em;
+  text-decoration: underline;
+}
+.nextBtn{
+  border: none;
+  background-color: #222222;
+  color: white;
+  border-radius: 8px;
+  padding: 1% 2%;
+  margin: 3%;
+  font-weight: 500;
+  font-size: 1.20em;
+}
+.nextBtn:hover{
+  background-color: black;
+
 }
 .cBtn{
   position: fixed;
