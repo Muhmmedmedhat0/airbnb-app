@@ -120,7 +120,7 @@ function Cards() {
     dispatch(fetchHotels());
     setHotels(hoteldata.hotels.hotels);
     console.log(hoteldata);
-  });
+  },[]);
   
   return (
     <div className="container ">
