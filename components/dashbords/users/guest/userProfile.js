@@ -1,13 +1,13 @@
 import React from 'react'
 import BaseNav from '../../../shared/navs/BaseNav'
 
-function userProfile() {
+function UserProfile() {
   return (
     <>
     <BaseNav/>
-    
+
     </>
   )
 }
 
-export default userProfile
+export default UserProfile
