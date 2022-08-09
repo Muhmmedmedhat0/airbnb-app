@@ -9,7 +9,7 @@ function floorPlan() {
     <div className={style.Mycontainer}>
       <Main text="How many guests would you like to welcome?"/>
       <PlanForm  nextHref="/host/becomeHost/location" 
-       backHref="/host/becomeHost/"/>
+       backHref="/host/becomeHost/photos"/>
       
     </div>
    
