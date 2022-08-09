@@ -19,7 +19,7 @@ function Login(props) {
   return (props.trigger) ? (
     <div className={style.popup} >
       <div className={style.popupInner}>
-        <form>
+        <form method='post' action="http://localhost:9000/api/hotels">
           <h3>Welcome to Airbnb</h3>
           <div className="row g-3 m-3 d-flex flex-column" >
 

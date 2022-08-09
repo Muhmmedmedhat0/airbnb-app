@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import style from "../../../styles/home.module.scss";
 import CardSlider from "./CardSlider";
 import { AiFillStar, AiOutlineHeart } from "react-icons/ai";
@@ -114,15 +114,27 @@ function Cards() {
     },
   ];
   const hoteldata = useSelector((state) => state.hotel);
+  const [hotelsss,setHotels]= useState([]);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchHotels());
+    setHotels(hoteldata.hotels.hotels);
     console.log(hoteldata);
-  },[]);
+  });
+  
   return (
     <div className="container ">
-      
       <div className="d-flex flex-wrap justify-content-between">
+        {hoteldata.loading && (
+          <div>
+            <p>loading</p>
+          </div>
+        )}
+        {console.log(hotelsss)}
+        {/* {!hoteldata.loading &&hoteldata.error?<div><p>Error</p></div>:<div><p>null</p></div>} */}
+{hotelsss&&hotelsss.map((hotel)=>(
+  <li key={hotel.id}>{hotel.name}</li>)
+)}
         {dummyData.map((dum) => (
           <div key={dum.id} className={style.homeCardBox}>
             <div className={style.CardBoxHeartIcon}>
@@ -130,17 +142,20 @@ function Cards() {
               {/* AiFillHeart */}
             </div>
             <Link href={`/rooms/${dum.id}`}>
-              <CardSlider dumImg={dum.images} hotID={dum.id} /></Link>
-              <div className="d-flex justify-content-between">
-              <h3><Link href={`/rooms/${dum.id}`}>{dum.name}</Link></h3>
-                <p>
-                  <AiFillStar /> {dum.rate}
-                </p>
-              </div>
-              <p>details</p>
-              <p>kkk</p>
-              <p>price</p>
+              <CardSlider dumImg={dum.images} hotID={dum.id} />
+            </Link>
+            <div className="d-flex justify-content-between">
+              <h3>
+                <Link href={`/rooms/${dum.id}`}>{dum.name}</Link>
+              </h3>
+              <p>
+                <AiFillStar /> {dum.rate}
+              </p>
             </div>
+            <p>details</p>
+            <p>kkk</p>
+            <p>price</p>
+          </div>
         ))}
       </div>
     </div>
