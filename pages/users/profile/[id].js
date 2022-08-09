@@ -1,5 +1,5 @@
 import React from 'react'
-import UserProfile from '../../../components/dashbords/users/guest/userProfile'
+import UserProfile from '../../../components/dashbords/users/guest/UserProfile'
 
 function profile() {
   return (

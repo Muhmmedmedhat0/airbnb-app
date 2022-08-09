@@ -100,7 +100,7 @@ function Cards() {
     },
     ,
     {
-      id: 10,
+      id: 14,
       name: "at2ota",
       rate: 44,
       price: 555,
@@ -118,7 +118,7 @@ function Cards() {
   useEffect(() => {
     dispatch(fetchHotels());
     console.log(hoteldata);
-  }, []);
+  });
   return (
     <div className="container ">
       

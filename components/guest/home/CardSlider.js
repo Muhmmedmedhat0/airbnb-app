@@ -5,7 +5,6 @@ function CardSlider({dumImg,hotID}) {
   const myLoader = ({ src, width, quality }) => {
     return `${src}`;
   };
-  console.log(dumImg)
   return (
     <div
       id={`carouselExampleIndicators${hotID}`}

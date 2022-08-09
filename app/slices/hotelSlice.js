@@ -6,7 +6,7 @@ const initialState = {
   error: "",
 };
 export const fetchHotels = createAsyncThunk("hotel/fetchHotels", () => {
-  return axios.get("https://jsonplaceholder.typicode.com/posts").then((response) => response.data);
+  return axios.get("http://localhost:9000/api/hotels").then((response) => response.data);
 });
 const hotelSlice = createSlice({
   name: "hotel",
