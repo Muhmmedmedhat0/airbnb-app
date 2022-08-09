@@ -6,8 +6,26 @@ const initialState = {
   error: "",
 };
 export const fetchHotels = createAsyncThunk("hotel/fetchHotels", () => {
-  
-  return axios.get("http://localhost:9000/api/hotels").then((response) =>response.data)});
+  return axios
+    .get("http://localhost:9000/api/hotels")
+    .then((response) => response.data);
+});
+export const getRoom = createAsyncThunk(
+  `room/getRoom`, async (hotel, thunkAPI) => {
+    const { rejectWithValue } = thunkAPI;
+    try {
+      await fetch((`http://localhost:9000/api/hotels/${hotel.id}`), {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json; charset=utf-8',
+        }
+      });
+      return hotel;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  });
+
 const hotelSlice = createSlice({
   name: "hotel",
   initialState,

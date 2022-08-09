@@ -120,7 +120,7 @@ function Cards() {
     dispatch(fetchHotels());
     setHotels(hoteldata.hotels.hotels);
     console.log(hoteldata);
-  });
+  },[]);
   
   return (
     <div className="container ">
@@ -132,9 +132,8 @@ function Cards() {
         )}
         {console.log(hotelsss)}
         {/* {!hoteldata.loading &&hoteldata.error?<div><p>Error</p></div>:<div><p>null</p></div>} */}
-{hotelsss&&hotelsss.map((hotel)=>(
-  <li key={hotel.id}>{hotel.name}</li>)
-)}
+        {console.log(hoteldata.hotels)}
+        
         {dummyData.map((dum) => (
           <div key={dum.id} className={style.homeCardBox}>
             <div className={style.CardBoxHeartIcon}>
