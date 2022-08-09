@@ -114,14 +114,14 @@ function Cards() {
     },
   ];
   const hoteldata = useSelector((state) => state.hotel);
-  const [hotelsss,setHotels]= useState([]);
+  const [hotelsss, setHotels] = useState([]);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchHotels());
     setHotels(hoteldata.hotels.hotels);
     console.log(hoteldata);
-  },[]);
-  
+  }, []);
+
   return (
     <div className="container ">
       <div className="d-flex flex-wrap justify-content-between">
@@ -133,29 +133,30 @@ function Cards() {
         {console.log(hotelsss)}
         {/* {!hoteldata.loading &&hoteldata.error?<div><p>Error</p></div>:<div><p>null</p></div>} */}
         {console.log(hoteldata.hotels)}
-        
-        {dummyData.map((dum) => (
-          <div key={dum.id} className={style.homeCardBox}>
-            <div className={style.CardBoxHeartIcon}>
-              <AiOutlineHeart />
-              {/* AiFillHeart */}
+        {hoteldata.hotels.hotels &&
+          hoteldata.hotels.hotels.map((hotel,index) => (
+            <div key={hotel.id} className={style.homeCardBox}>
+              <div className={style.CardBoxHeartIcon}>
+                <AiOutlineHeart />
+                {/* AiFillHeart */}
+              </div>
+              <Link href={`/rooms/${hotel.id}`}>
+                <CardSlider dumImg={hotel.images} hotID={index} />
+              </Link>
+              <div className="d-flex justify-content-between">
+                <h3>
+                  <Link href={`/rooms/${hotel.id}`}>{hotel.name}</Link>
+                </h3>
+                <p>
+                  <AiFillStar /> {hotel.rating}
+                </p>
+              </div>
+              <p>{hotel.desc}</p>
+              <p>{`http://localhost:9000/${hotel.images[0]}`}</p>
+              <p>{hotel.chapestPrice}</p>
             </div>
-            <Link href={`/rooms/${dum.id}`}>
-              <CardSlider dumImg={dum.images} hotID={dum.id} />
-            </Link>
-            <div className="d-flex justify-content-between">
-              <h3>
-                <Link href={`/rooms/${dum.id}`}>{dum.name}</Link>
-              </h3>
-              <p>
-                <AiFillStar /> {dum.rate}
-              </p>
-            </div>
-            <p>details</p>
-            <p>kkk</p>
-            <p>price</p>
-          </div>
-        ))}
+          ))}
+
       </div>
     </div>
   );
