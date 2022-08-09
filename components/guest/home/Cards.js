@@ -129,10 +129,10 @@ function Cards() {
               <AiOutlineHeart />
               {/* AiFillHeart */}
             </div>
-            
-              <CardSlider dumImg={dum.images} hotID={dum.id} />
+            <Link href={`/rooms/${dum.id}`}>
+              <CardSlider dumImg={dum.images} hotID={dum.id} /></Link>
               <div className="d-flex justify-content-between">
-              <h3><Link href='/kkk'>{dum.name}</Link></h3>
+              <h3><Link href={`/rooms/${dum.id}`}>{dum.name}</Link></h3>
                 <p>
                   <AiFillStar /> {dum.rate}
                 </p>
