@@ -118,7 +118,7 @@ function Cards() {
   useEffect(() => {
     dispatch(fetchHotels());
     console.log(hoteldata);
-  });
+  },[]);
   return (
     <div className="container ">
       
