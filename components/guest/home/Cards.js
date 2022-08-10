@@ -119,22 +119,45 @@ function Cards() {
     dispatch(fetchHotels());
     console.log(hoteldata);
   }, []);
+
+
+  const toggleItemToWishlist = async (item) =>{
+    const data = {};
+    
+    fetch('url', {
+      method: 'POST',
+      body: JSON.stringify(data)
+    })
+    .then(response=> response.json())
+    .then(data=> console.log('success'))
+    .catch(error=> console.log(error))
+  }
+
+
+
+
+
   return (
+    <>
+    
     <div className="container ">
       
       <div className="d-flex flex-wrap justify-content-between">
-        {dummyData.map((dum) => (
-          <div key={dum.id} className={style.homeCardBox}>
+        {dummyData.map((item) => (
+          <div key={item.id} className={style.homeCardBox}>
             <div className={style.CardBoxHeartIcon}>
-              <AiOutlineHeart />
+              <button
+                className="btn btn-light"
+                onClick={()=>toggleItemToWishlist(item)}
+              ><AiOutlineHeart /></button>
               {/* AiFillHeart */}
             </div>
             
-              <CardSlider dumImg={dum.images} hotID={dum.id} />
+            <Link href={`/`}><a> <CardSlider dumImg={item.images} hotID={item.id} /></a></Link>
               <div className="d-flex justify-content-between">
-              <h3><Link href='/kkk'>{dum.name}</Link></h3>
+              <h3><Link href='/kkk'>{item.name}</Link></h3>
                 <p>
-                  <AiFillStar /> {dum.rate}
+                  <AiFillStar /> {item.rate}
                 </p>
               </div>
               <p>details</p>
@@ -144,6 +167,7 @@ function Cards() {
         ))}
       </div>
     </div>
+    </>
   );
 }
 

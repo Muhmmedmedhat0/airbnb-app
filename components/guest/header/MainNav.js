@@ -66,14 +66,22 @@ function MainNav() {
                 </li>
                 <hr></hr>
                 <li>
+                  <Link href={`/trips`}><a className="dropdown-item">Trips</a></Link>
+                </li>
+                <li>
+                  <Link href={`/wishlist`}><a className="dropdown-item">WishList</a></Link>
+                </li>
+                <li>
                   <a className="dropdown-item" href="#">
                     host your home 
                   </a>
-                </li><li>
+                </li>
+                <li>
                   <a className="dropdown-item" href="#">
                     host an experience
                   </a>
-                </li><li>
+                </li>
+                <li>
                   <a className="dropdown-item" href="#">
                     help
                   </a>
