@@ -29,7 +29,7 @@ function MainNav() {
     <>
       <nav className={`navbar navbar-expand-lg bg-white  ${style.mainNav}`}>
         <div className="container">
-          <a className="navbar-brand" href="#">
+          <a className="navbar-brand" href="">
             <div className="d-flex align-items-center">
               <ImageComponent src="/assets/airbnb.png" width="30" height="30" />
               <span>airbnb</span>

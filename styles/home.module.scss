@@ -14,6 +14,10 @@
         border-radius: 15px;
     }
     .CardBoxHeartIcon{
+        button{
+background-color: transparent;
+border: none;
+        }
         position: absolute;
         top: 10px;
         font-size: 22px;

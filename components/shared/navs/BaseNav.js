@@ -12,14 +12,12 @@ import Registration from "../../shared/registration/registration";
 import ImageComponent from "../../shared/ImageComponent";
 import { useSelector, useDispatch } from "react-redux";
 import { logout, reset } from "../../../app/slices/auth/authSlice";
-import { Route, useLocation, useNavigate } from "react-router-dom";
-
 function BaseNav() {
   const [LpopupBtn, setLpopupBtn] = useState(false);
   const [RpopupBtn, setRpopupBtn] = useState(false);
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.auth);
-  
+
   const onLogout = () => {
     dispatch(logout());
     dispatch(reset());
@@ -28,12 +26,17 @@ function BaseNav() {
     <>
       <nav className={`navbar navbar-expand-lg bg-white  ${style.mainNav}`}>
         <div className="container">
-          <a className="navbar-brand" href="#">
+          <Link className="navbar-brand" href="#">
             <div className="d-flex align-items-center">
-              <ImageComponent src="/assets/airbnb.png" width="30" height="30" />
-              <span>airbnb</span>
+                  <ImageComponent
+                    src="/assets/airbnb.png"
+                    width="30"
+                    height="30"
+                  />
+                <span>airbnb</span>
+
             </div>
-          </a>
+          </Link>
           <div className="d-flex align-items-center justify-content-between ">
             <div className={style.hostLink}>
               <Link href="/host">Become a Host</Link>
