@@ -7,6 +7,7 @@ import Login from "../components/shared/login/Login";
 import { useState } from "react";
 import Cards from "../components/guest/home/Cards";
 import style from "../styles/home.module.scss";
+import Link from "next/link";
 
 function Home() {
   return (
@@ -16,6 +17,7 @@ function Home() {
         <FilterNav />
       </header>
       <main className={style.homeContent}>
+        {/* <Link ></Link> */}
         <Cards />
        </main>
       <Footer />

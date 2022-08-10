@@ -122,7 +122,26 @@ function Cards() {
     console.log(hoteldata);
   }, []);
 
+
+  const toggleItemToWishlist = async (item) =>{
+    const data = {};
+    
+    fetch('url', {
+      method: 'POST',
+      body: JSON.stringify(data)
+    })
+    .then(response=> response.json())
+    .then(data=> console.log('success'))
+    .catch(error=> console.log(error))
+  }
+
+
+
+
+
   return (
+    <>
+    
     <div className="container ">
       <div className="d-flex flex-wrap justify-content-between">
         {hoteldata.loading && (
@@ -137,7 +156,7 @@ function Cards() {
           hoteldata.hotels.hotels.map((hotel,index) => (
             <div key={hotel.id} className={style.homeCardBox}>
               <div className={style.CardBoxHeartIcon}>
-                <AiOutlineHeart />
+                <button onClick={()=>(toggleItemToWishlist)}><AiOutlineHeart /></button>
                 {/* AiFillHeart */}
               </div>
               <Link href={`/rooms/${hotel.id}`}>
@@ -160,6 +179,7 @@ function Cards() {
 
       </div>
     </div>
+    </>
   );
 }
 
