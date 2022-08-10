@@ -1,66 +1,59 @@
-import React ,{useState, useEffect}from 'react'
-import MainNav from '../../components/guest/header/MainNav';
+import React, { useEffect, useState } from "react";
+import MainNav from "../../components/guest/header/MainNav";
 import Footer from "../../components/shared/footer/Footer";
 import style from "../../styles/home.module.scss";
-import Link from 'next/link'
+import Link from "next/link";
+import CardSlider from "../../components/guest/home/CardSlider";
 
 export default function wishlist() {
-  const [wishList,setWishList]=useState([]);
+  const [wishList, setWishList] = useState([]);
 
-
-  useEffect(()=>{
+  useEffect(() => {
     // API call
-    fetch('url')
-    .then(response=> response.json())
-    .then(data=>{
-      setWishList(data)
-    })
-    .catch(error=>console.log(error))
-  },[])
+    fetch("http://localhost:9000/api/hotels")
+      .then((response) => response.json())
+      .then((data) => {
+        setWishList(data);
+      })
+      .catch((error) => console.log(error));
+  }, []);
 
   return (
     <>
-        
       <MainNav />
-
-      <div className='container mt-3'>
-        <div className='row'>
-            <h1>WishList</h1>
-
+      <div className="container mt-3">
+        <div className="row">
+          <h1>WishList</h1>
         </div>
-    </div>
-    <hr/>
-
-      {
-        wishList.length ? <>
-        {wishList.map((item) => (
-          <div key={item.id} className={style.homeCardBox}>
-            <div className={style.CardBoxHeartIcon}>
-              
-            </div>
-             <CardSlider dumImg={item.images} hotID={item.id} />
+      </div>
+      <hr />
+      {wishList.length ? (
+        <>
+        {console.log(wishList)}
+          {wishList.map((item) => (
+            <div key={item.id} className={style.homeCardBox}>
+              <div className={style.CardBoxHeartIcon}></div>
+              <CardSlider dumImg={item.images} hotID={item.id} />
               <div className="d-flex justify-content-between">
-              <h3><Link href='/kkk'>{item.name}</Link></h3>
-                
+                <h3>
+                  <Link href="/kkk">{item.name}</Link>
+                </h3>
               </div>
               <p>details</p>
               <p>kkk</p>
               <p>price</p>
             </div>
-        ))}
-        
-        
-        </> : <EmptyList/>
-      } 
-        
+          ))}
+        </>
+      ) : (
+        <EmptyList />
+      )}
+
       {/* <HostNav/> */}
       <Footer></Footer>
-
     </>
-  )
+  );
 }
-
-
 
 const EmptyList = () => {
   return (
@@ -68,12 +61,16 @@ const EmptyList = () => {
       <div className="container ">
         <div className="row">
           <h2>Your WishList is Empety...</h2>
-          <p className='ms-4'> You can add your favorite places here now</p>
-          <Link href={`/`}><a><button className='btn btn-white my-3 p-3 text-bold'>Add Now</button></a></Link> 
-
+          <p className="ms-4"> You can add your favorite places here now</p>
+          <Link href={`/`}>
+            <a>
+              <button className="btn btn-white my-3 p-3 text-bold">
+                Add Now
+              </button>
+            </a>
+          </Link>
         </div>
       </div>
     </div>
-
-  )
-}
+  );
+};

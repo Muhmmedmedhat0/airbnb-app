@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import React ,{useState, useEffect}from 'react'
 import MainNav from '../../components/guest/header/MainNav'
+import CardSlider from '../../components/guest/home/CardSlider';
 import Footer from "../../components/shared/footer/Footer";
 import style from "../../styles/home.module.scss";
 

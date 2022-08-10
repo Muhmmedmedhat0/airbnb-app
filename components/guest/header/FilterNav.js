@@ -5,28 +5,36 @@ import "react-alice-carousel/lib/alice-carousel.css";
 import Image from "next/image";
 import { AiOutlineFilter } from "react-icons/ai";
 import ImageComponent from "../../shared/ImageComponent";
+import { useDispatch, useSelector } from "react-redux";
+import { getType } from "../../../app/slices/filterSlice";
 
 function FilterNav() {
+  const filterType = useSelector((state) => state.filterType.value);
+  const dispatch = useDispatch();
+  
   const responsive = {
     0: { items: 3 },
     568: { items: 5 },
     1024: { items: 7 },
   };
-  const myLoader = ({ src, width, quality }) => {
-    return `https://a0.muscache.com/pictures/${src}`;
-  };
 
   const items = [
-    <div key={0} className="item" data-value="1">
+    <div key={0} className="item" data-value="1" onClick={()=>{
+      dispatch(getType("islands"))
+    }}>
       <ImageComponent
         src="https://a0.muscache.com/pictures/8e507f16-4943-4be9-b707-59bd38d56309.jpg"
         width="25"
         height="25"
         alt="fkjjf"
+        
       />
-      <p>Islands</p>
+      <p >Islands</p>
     </div>,
-    <div key={1} className="item" data-value="2">
+    <div key={1} className="item" data-value="2" onClick={()=>{
+      dispatch(getType("beach"))
+    }}
+    >
       <ImageComponent
         src="https://a0.muscache.com/pictures/10ce1091-c854-40f3-a2fb-defc2995bcaf.jpg"
         width="25"
@@ -35,16 +43,21 @@ function FilterNav() {
       />
       <p>beach</p>
     </div>,
-    <div key={2} className="item" data-value="3">
+    <div key={2} className="item" data-value="3"  onClick={()=>{
+      dispatch(getType("parks"))
+    }}>
       <ImageComponent
         src="https://a0.muscache.com/pictures/c0a24c04-ce1f-490c-833f-987613930eca.jpg"
         width="25"
         height="25"
         alt="fkjjf"
       />
-      <p>National parks</p>
+      <p onClick={console.log("mona")}>National parks</p>
     </div>,
-    <div key={3} className="item" data-value="4">
+    <div key={3} className="item" data-value="4"  onClick={()=>{
+      dispatch(getType("pools"))
+    }}>
+
       <ImageComponent
         src="https://a0.muscache.com/pictures/3fb523a0-b622-4368-8142-b5e03df7549b.jpg"
         width="25"
