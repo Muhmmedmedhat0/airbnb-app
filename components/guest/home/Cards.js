@@ -150,10 +150,11 @@ function Cards() {
                 <p>
                   <AiFillStar /> {hotel.rating}
                 </p>
+                <p></p>
               </div>
               <p>{hotel.desc}</p>
-              <p>{`http://localhost:9000/${hotel.images[0]}`}</p>
-              <p>{hotel.chapestPrice}</p>
+              <p></p>
+              <p>{hotel.cheapestPrice} <sub className="fs-6">night</sub></p>
             </div>
           ))}
 

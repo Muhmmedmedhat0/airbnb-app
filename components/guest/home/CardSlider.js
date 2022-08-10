@@ -7,8 +7,8 @@ function CardSlider({ dumImg, hotID }) {
   };
   return (
     <>
-      {console.log(dumImg)}
-      <p>{dumImg}</p>
+      {/* {console.log(dumImg)} */}
+      {/* <p>{dumImg}</p> */}
       <div
         id={`carouselExampleIndicators${hotID}`}
         className="carousel slide"
