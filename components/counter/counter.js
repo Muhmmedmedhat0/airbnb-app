@@ -7,19 +7,21 @@ function counter() {
   const dispatch = useDispatch();
   return (
     <div className={style.counter}>
-      <Button
+      <button
+        className={style.btn}
         aria-label="Increment value"
         onClick={() => dispatch(increment())}
       >
-        Increment
-      </Button>
+        +
+      </button>
       <h1 className={style.number}>{count}</h1>
-      <Button
+      <button
+        className={style.btn}
         aria-label="Decrement value"
         onClick={() => dispatch(decrement())}
       >
-        Decrement
-      </Button>
+        -
+      </button>
     </div>
   );
 }

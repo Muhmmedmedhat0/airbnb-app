@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import style from "../../../styles/home.module.scss";
 import CardSlider from "./CardSlider";
 import { AiFillStar, AiOutlineHeart } from "react-icons/ai";
@@ -100,7 +100,7 @@ function Cards() {
     },
     ,
     {
-      id: 10,
+      id: 14,
       name: "at2ota",
       rate: 44,
       price: 555,
@@ -114,9 +114,11 @@ function Cards() {
     },
   ];
   const hoteldata = useSelector((state) => state.hotel);
+  const [hotelsss, setHotels] = useState([]);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchHotels());
+    setHotels(hoteldata.hotels.hotels);
     console.log(hoteldata);
   }, []);
 
@@ -141,30 +143,39 @@ function Cards() {
     <>
     
     <div className="container ">
-      
       <div className="d-flex flex-wrap justify-content-between">
-        {dummyData.map((item) => (
-          <div key={item.id} className={style.homeCardBox}>
-            <div className={style.CardBoxHeartIcon}>
-              <button
-                className="btn btn-light"
-                onClick={()=>toggleItemToWishlist(item)}
-              ><AiOutlineHeart /></button>
-              {/* AiFillHeart */}
-            </div>
-            
-            <Link href={`/`}><a> <CardSlider dumImg={item.images} hotID={item.id} /></a></Link>
+        {hoteldata.loading && (
+          <div>
+            <p>loading</p>
+          </div>
+        )}
+        {console.log(hotelsss)}
+        {/* {!hoteldata.loading &&hoteldata.error?<div><p>Error</p></div>:<div><p>null</p></div>} */}
+        {console.log(hoteldata.hotels)}
+        {hoteldata.hotels.hotels &&
+          hoteldata.hotels.hotels.map((hotel,index) => (
+            <div key={hotel.id} className={style.homeCardBox}>
+              <div className={style.CardBoxHeartIcon}>
+                <button onClick={()=>(toggleItemToWishlist)}><AiOutlineHeart /></button>
+                {/* AiFillHeart */}
+              </div>
+              <Link href={`/rooms/${hotel.id}`}>
+                <CardSlider dumImg={hotel.images} hotID={index} />
+              </Link>
               <div className="d-flex justify-content-between">
-              <h3><Link href='/kkk'>{item.name}</Link></h3>
+                <h3>
+                  <Link href={`/rooms/${hotel.id}`}>{hotel.name}</Link>
+                </h3>
                 <p>
-                  <AiFillStar /> {item.rate}
+                  <AiFillStar /> {hotel.rating}
                 </p>
               </div>
-              <p>details</p>
-              <p>kkk</p>
-              <p>price</p>
+              <p>{hotel.desc}</p>
+              <p>{`http://localhost:9000/${hotel.images[0]}`}</p>
+              <p>{hotel.chapestPrice}</p>
             </div>
-        ))}
+          ))}
+
       </div>
     </div>
     </>

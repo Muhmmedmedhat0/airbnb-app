@@ -2,12 +2,30 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 const initialState = {
   loading: false,
-  hotelData: [],
+  hotels: [],
   error: "",
 };
 export const fetchHotels = createAsyncThunk("hotel/fetchHotels", () => {
-  return axios.get("https://jsonplaceholder.typicode.com/posts").then((response) => response.data);
+  return axios
+    .get("http://localhost:9000/api/hotels")
+    .then((response) => response.data);
 });
+export const getRoom = createAsyncThunk(
+  `room/getRoom`, async (hotel, thunkAPI) => {
+    const { rejectWithValue } = thunkAPI;
+    try {
+      await fetch((`http://localhost:9000/api/hotels/${hotel.id}`), {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json; charset=utf-8',
+        }
+      });
+      return hotel;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  });
+
 const hotelSlice = createSlice({
   name: "hotel",
   initialState,
@@ -17,12 +35,12 @@ const hotelSlice = createSlice({
     });
     builder.addCase(fetchHotels.fulfilled, (state, action) => {
       state.loading = false;
-      state.hotelData = action.payload;
+      state.hotels = action.payload;
       state.error;
     });
     builder.addCase(fetchHotels.rejected, (state, action) => {
       state.loading = false;
-      state.hotelData = [];
+      state.hotels = [];
       state.error = action.error.message;
     });
   },
