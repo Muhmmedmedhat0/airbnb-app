@@ -6,6 +6,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchHotels } from "../../../app/slices/hotelSlice";
 import { setWishList } from "../../../app/slices/wishListSlice";
 import Link from "next/link";
+
+
 function Cards() {
   const hoteldata = useSelector((state) => state.hotel);
   const dispatch = useDispatch();
@@ -31,7 +33,7 @@ function Cards() {
 
   return (
     <>
-      <div className="container ">
+      <div className={style.container}>
         <div className="d-flex flex-wrap justify-content-between">
           {/* {hoteldata.loading && (
             <div>
@@ -56,20 +58,20 @@ function Cards() {
                 <Link href={`/rooms/${hotel.id}`}>
                   <CardSlider dumImg={hotel.images} hotID={index} />
                 </Link>
-                <div className="d-flex justify-content-between">
+                <div className={`d-flex justify-content-between ${style.pname}`}>
                   <h3>
-                    <Link href={`/rooms/${hotel._id}`}>{hotel.name}</Link>
+                    <Link className={style.pname} href={`/rooms/${hotel._id}`}>{hotel.name}</Link>
                   </h3>
                   <p>
                     <AiFillStar /> {hotel.rating}
                   </p>
                 </div>
-                <p>{hotel.type}</p>
+                <p className={style.pnamee}>{hotel.type}</p>
 
-                <p>{hotel.desc}</p>
+                <p className={style.pnamee}>{hotel.desc}</p>
                 <p></p>
-                <p>
-                  {hotel.cheapestPrice} <sub className="fs-6">night</sub>
+                <p style={{fontWeight:"600"}}>
+                  ${hotel.cheapestPrice} <span style={{fontWeight:"400"}} className="fs-6">night</span>
                 </p>
               </div>
             ))}

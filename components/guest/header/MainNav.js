@@ -27,13 +27,15 @@ function MainNav() {
   };
   return (
     <>
-      <nav className={`navbar navbar-expand-lg bg-white  ${style.mainNav}`}>
+      <nav className={`navbar my-2 py-2 navbar-expand-lg bg-white  ${style.mainNav}`}>
         <div className="container">
           <a className="navbar-brand" href="">
-            <div className="d-flex align-items-center">
-              <ImageComponent src="/assets/airbnb.png" width="30" height="30" />
-              <span>airbnb</span>
-            </div>
+          <Link href="/">
+              <div className="d-flex align-items-center">    
+                <ImageComponent src="/assets/airbnb.png" width="30" height="30" />
+                <span>airbnb</span>      
+              </div>
+            </Link>
           </a>
           <div className={`d-flex align-items-center ${style.navSearch}`}>
             <p>Anywhere </p>|<p>Any week</p>|<p>Add guests</p>
@@ -67,7 +69,7 @@ function MainNav() {
                         className="dropdown-item"
                         onClick={() => setRpopupBtn(true)}
                       >
-                        sign up
+                        Sign up
                       </a>
                     </li>
                     <li>
@@ -75,22 +77,22 @@ function MainNav() {
                         className="dropdown-item"
                         onClick={() => setLpopupBtn(true)}
                       >
-                        login in
+                        Login in
                       </a>
                     </li>
                   </>
                 ) : (
-                  <li>
+                  <li  className="dropdown-item">
                     {console.log(user.name)}
                     <Link
                       href={`/users/profile/${user._id}`}
                       className="dropdown-item"
                     >
-                      profile
+                      Profile
                     </Link>
                   </li>
                 )}
-                <hr></hr>
+                <hr style={{color:"#222222"}}></hr>
                 <li>
                   <Link href={`/trips`}>
                     <a className="dropdown-item">Trips</a>
@@ -103,23 +105,23 @@ function MainNav() {
                 </li>
                 <li>
                   <a className="dropdown-item" href="#">
-                    host your home
+                    Host your home
                   </a>
                 </li>
                 <li>
                   <a className="dropdown-item" href="#">
-                    host an experience
+                    Host an experience
                   </a>
                 </li>
                 <li>
                   <a className="dropdown-item" href="#">
-                    help
+                    Help
                   </a>
                 </li>
                 {user ? (
                   <li onClick={onLogout}>
                     <a className="dropdown-item" href="#">
-                      logout
+                      Logout
                     </a>
                   </li>
                 ) : null}

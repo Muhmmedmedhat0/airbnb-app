@@ -132,9 +132,9 @@ function FilterNav() {
   return (
     <div className={style.filternavBorder}>
 
-    <div className="container ">
+    <div className="container">
       <div
-        className={`d-flex flex-wrap  justify-content-around  ${style.filterBox}`}
+        className={`d-flex flex-wrap justify-content-around  ${style.filterBox}`}
       >
         <div className={style.filterIconsBar}>
           <AliceCarousel
