@@ -4,19 +4,25 @@ import Footer from "../../components/shared/footer/Footer";
 import style from "../../styles/home.module.scss";
 import Link from "next/link";
 import CardSlider from "../../components/guest/home/CardSlider";
+import axios from "axios";
+import { useSelector } from "react-redux";
 
-export default function wishlist() {
-  const [wishList, setWishList] = useState([]);
+export default function Wishlist() {
+  const wishListData = useSelector((state) => state.wishList.wishListData);
+  console.log(wishListData);
+  const [wishList, setWishList] = useState(wishListData);
 
-  useEffect(() => {
-    // API call
-    fetch("http://localhost:9000/api/hotels")
-      .then((response) => response.json())
-      .then((data) => {
-        setWishList(data);
-      })
-      .catch((error) => console.log(error));
-  }, []);
+  // useEffect(() => {
+  //   const AllData=axios.get("http://localhost:9000/api/hotels")
+  //   .then((response) => console.log( response.data));
+  //   setWishList(AllData);
+  //   // fetch("http://localhost:9000/api/hotels")
+  //   //   .then((response) => response.json())
+  //   //   .then((data) => {
+  //   //     setWishList(data);
+  //   //   })
+  //   //   .catch((error) => console.log(error));
+  // }, []);
 
   return (
     <>

@@ -2,19 +2,19 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import style from "../../styles/becomeHost.module.scss";
 import { useDispatch, useSelector } from "react-redux";
-import { setAddress,setHostCity } from "../../app/slices/hostSlice";
+import { setAddress, setHostCity } from "../../app/slices/hostSlice";
 
 function LocationForm(props) {
   const type = useSelector((state) => state.host.hotel);
   const dispatch = useDispatch();
-  
+
   let [street, setStreet] = useState("");
   let [city, setCity] = useState("");
   let [country, setCountry] = useState("");
-const formSunmit =()=>{
-dispatch(setAddress(street+' , '+city+' , '+country))
-dispatch(setHostCity(city))
-}
+  const formSunmit = () => {
+    dispatch(setAddress(street + " , " + city + " , " + country));
+    dispatch(setHostCity(city));
+  };
   return (
     <div className={style.container}>
       <form className={style.sContainer}>
@@ -52,9 +52,14 @@ dispatch(setHostCity(city))
           <button className={style.backBtn}>Back</button>
         </Link>
         <Link href={`${props.backHref}`}>
-          <button className={style.nextBtn} onClick={()=>{
-            formSunmit();
-          }} >Next</button>
+          <button
+            className={style.nextBtn}
+            onClick={() => {
+              formSunmit();
+            }}
+          >
+            Next
+          </button>
         </Link>
       </div>
     </div>

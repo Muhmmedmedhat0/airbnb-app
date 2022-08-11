@@ -59,6 +59,7 @@ function MainNav() {
                 <FaUserCircle />
               </button>
               <ul className="dropdown-menu">
+                {console.log("user", user)}
                 {!user ? (
                   <>
                     <li>
@@ -81,7 +82,6 @@ function MainNav() {
                 ) : (
                   <li>
                     {console.log(user.name)}
-
                     <Link
                       href={`/users/profile/${user._id}`}
                       className="dropdown-item"
@@ -92,10 +92,14 @@ function MainNav() {
                 )}
                 <hr></hr>
                 <li>
-                  <Link href={`/trips`}><a className="dropdown-item">Trips</a></Link>
+                  <Link href={`/trips`}>
+                    <a className="dropdown-item">Trips</a>
+                  </Link>
                 </li>
                 <li>
-                  <Link href={`/wishlist`}><a className="dropdown-item">WishList</a></Link>
+                  <Link href={`/wishlist`}>
+                    <a className="dropdown-item">WishList</a>
+                  </Link>
                 </li>
                 <li>
                   <a className="dropdown-item" href="#">

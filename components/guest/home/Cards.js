@@ -4,13 +4,14 @@ import CardSlider from "./CardSlider";
 import { AiFillStar, AiOutlineHeart } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchHotels } from "../../../app/slices/hotelSlice";
+import { setWishList } from "../../../app/slices/wishListSlice";
 import Link from "next/link";
 function Cards() {
   const hoteldata = useSelector((state) => state.hotel);
   const dispatch = useDispatch();
   const [filterData, setFilterData] = useState([]);
   const filterType = useSelector((state) => state.filterType.value);
-
+  const wishListData = useSelector((state) => state.wishListData);
   useEffect(() => {
     dispatch(fetchHotels());
     setFilterData(hoteldata.hotels.hotels);
@@ -28,17 +29,6 @@ function Cards() {
     }
   }, [hoteldata.hotels.hotels]);
 
-  const toggleItemToWishlist = async (item) => {
-    const data = {};
-
-    fetch("http://localhost:9000/api/hotels", {
-      method: "POST",
-      body: JSON.stringify(data),
-    })
-      .then((response) => response.json())
-      .then((data) => console.log("success"))
-      .catch((error) => console.log(error));
-  };
   return (
     <>
       <div className="container ">
@@ -56,7 +46,9 @@ function Cards() {
             filterData.map((hotel, index) => (
               <div key={hotel.id} className={style.homeCardBox}>
                 <div className={style.CardBoxHeartIcon}>
-                  <button onClick={() => toggleItemToWishlist()}>
+                  <button onClick={()=>{
+                    dispatch(setWishList(hotel))
+                  }}>
                     <AiOutlineHeart />
                   </button>
                   {/* AiFillHeart */}
