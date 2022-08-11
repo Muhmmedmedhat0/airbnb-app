@@ -1,9 +1,34 @@
 import React from 'react'
+import style from "../../../../styles/dashboard.module.scss"
+import ImageComponents from "../../../shared/ImageComponent"
 
-function hostDashboard() {
+function HostDashboard() {
   return (
-    <div>hostDashboard</div>
+    <>
+      <div className={style.bg}>Host Dashboard</div>
+      <div className={style.Mycontainer}>
+        <div className={style.cardDiv}>
+          <ImageComponents src="https://i.guim.co.uk/img/media/26392d05302e02f7bf4eb143bb84c8097d09144b/446_167_3683_2210/master/3683.jpg?width=1200&height=900&quality=85&auto=format&fit=crop&s=11e949fc5d06576bc8b80ec192896753"
+           width="100"
+           height="100"/>
+          <div>Title</div>
+          <div>Price</div>
+        </div>
+        <div className={style.cardDiv}>
+          <div>Title</div>
+          <div>Price</div>
+        </div>
+        <div className={style.cardDiv}>
+          <div>Title</div>
+          <div>Price</div>
+        </div>
+        <div className={style.cardDiv}>
+          <div>Title</div>
+          <div>Price</div>
+        </div>
+      </div>
+    </>
   )
 }
 
-export default hostDashboard
+export default HostDashboard
