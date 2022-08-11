@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Router from "next/router";
 
-function index() {
+function Index() {
   useEffect(() => {
     // Redirect to "/host/becomeHost/placeType"
     const { pathname } = Router;
@@ -14,4 +14,4 @@ function index() {
   )
 }
 
-export default index
+export default Index

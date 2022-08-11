@@ -49,8 +49,8 @@ function Cards() {
             </div>
           )} */}
           {/* {!hoteldata.loading &&hoteldata.error?<div><p>Error</p></div>:<div><p>null</p></div>} */}
-          {console.log(hoteldata.hotels)}
-          {console.log("fknfjk", filterData)}
+          {/* {console.log(hoteldata.hotels)}
+          {console.log("fknfjk", filterData)} */}
 
           {filterData&&
             filterData.map((hotel, index) => (

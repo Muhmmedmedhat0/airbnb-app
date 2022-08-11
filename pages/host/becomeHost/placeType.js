@@ -10,6 +10,7 @@ function placeType() {
       <Main text="What kind of place will you host?"/>
       <Selections 
         selectOptions={options}
+        optionName="selectType"
         nextHref="/host/intro" 
         backHref="/host/becomeHost/spaceType"/>
     </div>

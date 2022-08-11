@@ -23,7 +23,7 @@ function counter() {
         -
       </button>
     </div>
-  );
+  ); 
 }
 
 export default counter;

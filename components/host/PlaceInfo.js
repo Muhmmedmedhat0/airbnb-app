@@ -1,12 +1,30 @@
 import React, { useEffect, useState } from 'react'
 import Link from "next/link";
 import style from "../../styles/becomeHost.module.scss"
+import { setCheapestPrice, settitle,setHostDesc, insertHotel } from '../../app/slices/hostSlice';
+import { useDispatch } from 'react-redux';
 
 function PlaceInfo(props) {
+  const dispatch = useDispatch();
+
   let [title,setTitle] = useState("")
   let [description,setDesc] = useState("")
   let [price,setPrice] = useState("")
+  const InfoSubmit =()=>{
+    dispatch(setHostDesc(description))
+    dispatch(setCheapestPrice(price))
+    dispatch(settitle(title))
+    // dispatch(insertHotel)
+
+  }
+    const submitall =()=>{
+    dispatch(insertHotel())
+
+      }
+    
+    
   return (
+
     <div className={style.container}>
     <div className={style.sContainer}>
       <form className={style.sContainer}>
@@ -47,8 +65,14 @@ function PlaceInfo(props) {
         <button className={style.backBtn}>Back</button>
       </Link>
       <Link href={`${props.backHref}`}>
-        <button className={style.nextBtn}>Next</button>
+        <button className={style.nextBtn} onClick={()=>{
+            InfoSubmit();
+          }}>Next</button>
       </Link>
+      <button className={style.nextBtn} onClick={()=>{
+         submitall();
+          }}>done</button>
+      
     </div>
   </div>
   )

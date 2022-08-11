@@ -1,14 +1,23 @@
 import React, { useEffect, useState } from 'react'
 import Link from "next/link";
 import style from "../../styles/becomeHost.module.scss"
+import { useDispatch, useSelector } from "react-redux";
+import { setHostImage } from '../../app/slices/hostSlice';
 
 function PhotoInputs(props) {
+  let [imag, setImage] = useState("");
+  const dispatch = useDispatch();
+  const ImageSubmit =()=>{
+    dispatch(setHostImage(imag))
+    }
+    
   return (
     <div className={style.container}>
       <div className={style.sContainer}>
         <form className={style.sContainer}>
-         <label className={style.gLable} for="img" style={{paddingBottom:"10%", width:"60%"}}>Upload from your device</label>
-         <input  type="file" id="img" name="img[]" accept="image/*" multiple/>
+         <label className={style.gLable} htmlFor="img" style={{paddingBottom:"10%", width:"60%"}}>Upload from your device</label>
+         <input onChange={(e) => setImage(e.target.value)}
+            type="file" id="img" name="img[]" accept="image/*" multiple/>
         </form>
       </div>
       <div className={style.Bcontainer}>
@@ -16,7 +25,9 @@ function PhotoInputs(props) {
           <button className={style.backBtn}>Back</button>
         </Link>
         <Link href={`${props.backHref}`}>
-          <button className={style.nextBtn}>Next</button>
+          <button className={style.nextBtn}  onClick={()=>{
+            ImageSubmit();
+          }} >Next</button>
         </Link>
       </div>
     </div>

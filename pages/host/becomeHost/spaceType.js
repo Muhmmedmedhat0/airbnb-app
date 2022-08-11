@@ -9,7 +9,7 @@ function spaceType() {
     <div className={style.Mycontainer}>
       <Main text="What kind of space will guests have?"/>
       <Selections 
-        selectOptions={options}
+        selectOptions={options} optionName="spaceType"
         nextHref="/host/becomeHost/placeType" 
         backHref="/host/becomeHost/location"/>
     </div>
