@@ -22,8 +22,11 @@ const tripsSlice = createSlice({
     setHotelInfo: (state, action) => {
       state.tripMainInfo.hotel = action.payload;
     },
+    addTrip: (state) => {
+      state.tripAllInfo.push(state.tripMainInfo);
+    },
   },
 });
-export const { setEndDate, setStartDate, setGuests,setHotelInfo } = tripsSlice.actions;
+export const { setEndDate, setStartDate, setGuests,setHotelInfo, addTrip } = tripsSlice.actions;
 
 export default tripsSlice.reducer;

@@ -5,8 +5,6 @@ import { AiOutlineSearch } from "react-icons/ai";
 import { GiWorld } from "react-icons/gi";
 import { BiMenuAltLeft } from "react-icons/bi";
 import { FaUserCircle } from "react-icons/fa";
-// BiMenuAltLeft;
-
 import style from "../../../styles/header.module.scss";
 import Login from "../../shared/login/Login";
 import Registration from "../../shared/registration/registration";

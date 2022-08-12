@@ -7,9 +7,16 @@ import Footer from "../../components/shared/footer/Footer";
 import style from "../../styles/home.module.scss";
 
 export default function Trips() {
+  const getDates = (Hostdate1, hostdate2) => {
+    const date1 = new Date(Hostdate1);
+    const date2 = new Date(hostdate2);
+    const diffTime = Math.abs(date2 - date1);
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    return diffDays;
+  };
   const tripsData = useSelector((state) => state.trips.tripMainInfo);
   console.log(tripsData);
-  const [trip, setTrip] = useState(tripsData.hotel);
+  const [trip, setTrip] = useState(tripsData);
   return (
     <>
       <MainNav />
@@ -18,28 +25,31 @@ export default function Trips() {
           <h1>Trips</h1>
         </div>
       </div>
-      {console.log(trip) }
       <hr />
-      {trip ? (
-        <>
-        {console.log(trip) }
-          <div className={style.homeCardBox}>
-            <div className={style.CardBoxHeartIcon}></div>
-            <CardSlider dumImg={trip.images} hotID={trip.id} />
-            <div className="d-flex justify-content-between">
-              <h3>
-                <Link href="/kkk">{trip.name}</Link>
-              </h3>
+      <div className={style.container}>
+        <div className="d-flex flex-wrap justify-content-between">
+          {tripsData.hotel ? (
+            <div className={style.homeCardBox}>
+              <CardSlider dumImg={trip.hotel.images} hotID="2" />
+              <div className="d-flex justify-content-between">
+                <h3>
+                  <Link href=" ">{trip.hotel.name}</Link>
+                </h3>
+              </div>
+              <p>From : {trip.startDate} </p>
+              <p>To : {trip.endDate}</p>
+              <p>
+                Total :{" "}
+                {getDates(trip.startDate, trip.endDate) *
+                  trip.hotel.cheapestPrice}{" "}
+                $
+              </p>
             </div>
-            <p>details</p>
-            <p>kkk</p>
-            <p>price</p>
-          </div>
-        </>
-      ) : (
-        <EmptyList />
-      )}
-
+          ) : (
+            <EmptyList />
+          )}
+        </div>
+      </div>
       <Footer></Footer>
     </>
   );
@@ -47,32 +57,29 @@ export default function Trips() {
 
 const EmptyList = () => {
   return (
-    <>
-      {/* <hr></hr> */}
-      <div className="px-4   rounded-3 ">
-        <div className="container ">
-          <div className="row">
-            <h2>No trips booked...yet!</h2>
-            <p className="text-muted ms-4">
-              Time to dust off your bags and start planning your next adventure
-            </p>
-            <Link href={`/`}>
-              <a>
-                <button className="btn btn-white my-3 p-3 text-bold">
-                  Start searching
-                </button>
-              </a>
-            </Link>
-            <hr></hr>
-            <p>
-              Can&#39;t find your reservation here?{" "}
-              <a>
-                <strong>Visit the Help Center</strong>
-              </a>
-            </p>
-          </div>
+    <div className="px-4   rounded-3 ">
+      <div className="container ">
+        <div className="row">
+          <h2>No trips booked...yet!</h2>
+          <p className="text-muted ms-4">
+            Time to dust off your bags and start planning your next adventure
+          </p>
+          <Link href={`/`}>
+            <a>
+              <button className="btn btn-white my-3 p-3 text-bold">
+                Start searching
+              </button>
+            </a>
+          </Link>
+          <hr></hr>
+          <p>
+            Can&#39;t find your reservation here?{" "}
+            <a>
+              <strong>Visit the Help Center</strong>
+            </a>
+          </p>
         </div>
       </div>
-    </>
+    </div>
   );
 };

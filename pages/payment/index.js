@@ -1,10 +1,18 @@
 import Link from "next/link";
 import React from "react";
+import { useDispatch } from "react-redux";
+import { addTrip } from "../../app/slices/tripsSlice";
 import MainNav from "../../components/guest/header/MainNav";
 import Footer from "../../components/shared/footer/Footer";
 import styleBtn from "../../styles/content.module.scss";
 
 export default function Payment() {
+  const dispatch=useDispatch();
+  const subTrip=()=>{
+    dispatch(addTrip())
+
+  }
+
   return (
     <>
       <MainNav />
@@ -316,7 +324,7 @@ export default function Payment() {
               {/* className="w-100 btn btn-primary btn-lg" */}
               <Link href={`/trips`}>
                 <a>
-                  <button className={styleBtn.btn} type="submit">
+                  <button className={styleBtn.btn} onClick={()=>{subTrip()}}>
                     Continue to checkout
                   </button>
                 </a>

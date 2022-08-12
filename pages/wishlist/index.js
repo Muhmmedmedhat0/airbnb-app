@@ -4,26 +4,12 @@ import Footer from "../../components/shared/footer/Footer";
 import style from "../../styles/home.module.scss";
 import Link from "next/link";
 import CardSlider from "../../components/guest/home/CardSlider";
-import axios from "axios";
 import { useSelector } from "react-redux";
 
 export default function Wishlist() {
   const wishListData = useSelector((state) => state.wishList.wishListData);
   console.log(wishListData);
   const [wishList, setWishList] = useState(wishListData);
-
-  // useEffect(() => {
-  //   const AllData=axios.get("http://localhost:9000/api/hotels")
-  //   .then((response) => console.log( response.data));
-  //   setWishList(AllData);
-  //   // fetch("http://localhost:9000/api/hotels")
-  //   //   .then((response) => response.json())
-  //   //   .then((data) => {
-  //   //     setWishList(data);
-  //   //   })
-  //   //   .catch((error) => console.log(error));
-  // }, []);
-
   return (
     <>
       <MainNav />
@@ -33,29 +19,35 @@ export default function Wishlist() {
         </div>
       </div>
       <hr />
-      {wishList.length ? (
-        <>
-        {console.log(wishList)}
-          {wishList.map((item) => (
-            <div key={item.id} className={style.homeCardBox}>
-              <div className={style.CardBoxHeartIcon}></div>
-              <CardSlider dumImg={item.images} hotID={item.id} />
-              <div className="d-flex justify-content-between">
-                <h3>
-                  <Link href="/kkk">{item.name}</Link>
-                </h3>
-              </div>
-              <p>details</p>
-              <p>kkk</p>
-              <p>price</p>
-            </div>
-          ))}
-        </>
-      ) : (
-        <EmptyList />
-      )}
-
-      {/* <HostNav/> */}
+      <div className={style.container}>
+        <div className="d-flex flex-wrap justify-content-between">
+          {wishList.length ? (
+            <>
+              {wishList.map((item) => (
+                <div key={item.id} className={style.homeCardBox}>
+                  <div className={style.CardBoxHeartIcon}></div>
+                  <CardSlider dumImg={item.images} hotID={item.id} />
+                  <div className="d-flex justify-content-between">
+                    <h4>
+                      <Link href="/">{item.name}</Link>
+                    </h4>
+                  </div>
+                <p className={style.pnamee}>{item.type}</p>
+                <p className={style.pnamee}>{item.distance}</p>
+                <p style={{ fontWeight: "600" }}>
+                  ${item.cheapestPrice}
+                  <span style={{ fontWeight: "400" }} className="fs-6">
+                    night
+                  </span>
+                </p>
+                </div>
+              ))}
+            </>
+          ) : (
+            <EmptyList />
+          )}
+        </div>
+      </div>
       <Footer></Footer>
     </>
   );

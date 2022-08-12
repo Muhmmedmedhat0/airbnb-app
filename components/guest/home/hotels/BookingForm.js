@@ -3,19 +3,22 @@ import { AiFillStar } from "react-icons/ai";
 import Link from "next/link";
 import style from "../../../../styles/hotel.module.scss";
 import { useDispatch } from "react-redux";
-import { setEndDate, setGuests, setStartDate } from "../../../../app/slices/tripsSlice";
+import {
+  setEndDate,
+  setGuests,
+  setStartDate,
+} from "../../../../app/slices/tripsSlice";
 
 function BookingForm() {
   const dispatch = useDispatch();
-  
   let [startDate, SetSDate] = useState("");
   let [endDate, setENDDate] = useState("");
   let [guest, setNguests] = useState("");
-  const submitForm=()=>{
-  dispatch(setGuests(guest))
-  dispatch(setStartDate(startDate))
-  dispatch(setEndDate(endDate))
-}
+  const submitForm = () => {
+    dispatch(setGuests(guest));
+    dispatch(setStartDate(startDate));
+    dispatch(setEndDate(endDate));
+  };
   return (
     <div className={`${style.bookinSection}`}>
       <div className="d-flex justify-content-between">
@@ -50,25 +53,33 @@ function BookingForm() {
                 Check Out
               </label>
               <input
-                type="date" required
+                type="date"
+                required
                 onChange={(e) => setENDDate(e.target.value)}
                 className="form-control"
                 id="exampleInputPassword1"
               />
             </div>
           </div>
-          <select className="form-select" aria-label="Default select example" 
-                onSelectCapture={(e) => setNguests(e.target.value)}
-                >
+          <select
+            className="form-select"
+            aria-label="Default select example"
+            onChange={(e) => setNguests(e.target.value)}
+          >
             <option selected>Open this select menu</option>
             <option value="1">One</option>
             <option value="2">Two</option>
             <option value="3">Three</option>
           </select>
-          <Link href={'/payment'}>
-          <button onClick={()=>{submitForm()}} className="btn btn-primary">
-            Check availability
-          </button>
+          <Link href={"/payment"}>
+            <button
+              onClick={() => {
+                submitForm();
+              }}
+              className="btn btn-primary"
+            >
+              Check availability
+            </button>
           </Link>
         </form>
       </div>

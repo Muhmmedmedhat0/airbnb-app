@@ -1,19 +1,18 @@
 import React, { useEffect, useState } from "react";
 import style from "../../../styles/home.module.scss";
 import CardSlider from "./CardSlider";
-import { AiFillStar, AiOutlineHeart } from "react-icons/ai";
+import { AiFillHeart, AiFillStar, AiOutlineHeart } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchHotels } from "../../../app/slices/hotelSlice";
 import { setWishList } from "../../../app/slices/wishListSlice";
 import Link from "next/link";
 
-
 function Cards() {
   const hoteldata = useSelector((state) => state.hotel);
   const dispatch = useDispatch();
   const [filterData, setFilterData] = useState([]);
+  const [heartColor, setHeartColor] = useState(false);
   const filterType = useSelector((state) => state.filterType.value);
-  const wishListData = useSelector((state) => state.wishListData);
   useEffect(() => {
     dispatch(fetchHotels());
     setFilterData(hoteldata.hotels.hotels);
@@ -23,55 +22,53 @@ function Cards() {
         return item.type.toLowerCase().includes(`${searchVal}`);
       });
       setFilterData(filterArr);
-    }
-    else {
-      let filterArr=hoteldata.hotels.hotels;  
+    } else {
+      let filterArr = hoteldata.hotels.hotels;
       setFilterData(filterArr);
-
     }
   }, [hoteldata.hotels.hotels]);
-
+  const addtoWishList = (hotel) => {
+    dispatch(setWishList(hotel));
+    setHeartColor(true);
+  };
   return (
     <>
       <div className={style.container}>
         <div className="d-flex flex-wrap justify-content-between">
-          {/* {hoteldata.loading && (
-            <div>
-              <p>loading</p>
-            </div>
-          )} */}
-          {/* {!hoteldata.loading &&hoteldata.error?<div><p>Error</p></div>:<div><p>null</p></div>} */}
-          {/* {console.log(hoteldata.hotels)}
-          {console.log("fknfjk", filterData)} */}
-
-          {filterData&&
+          {filterData &&
             filterData.map((hotel, index) => (
               <div key={hotel.id} className={style.homeCardBox}>
                 <div className={style.CardBoxHeartIcon}>
-                  <button onClick={()=>{
-                    dispatch(setWishList(hotel))
-                  }}>
-                    <AiOutlineHeart />
+                  <button
+                    onClick={() => {
+                      addtoWishList(hotel);
+                    }}
+                  >
+                    {heartColor?(<AiFillHeart key={index}/>):(<AiOutlineHeart key={index} />)}
                   </button>
-                  {/* AiFillHeart */}
                 </div>
                 <Link href={`/rooms/${hotel.id}`}>
                   <CardSlider dumImg={hotel.images} hotID={index} />
                 </Link>
-                <div className={`d-flex justify-content-between ${style.pname}`}>
-                  <h3>
-                    <Link className={style.pname} href={`/rooms/${hotel._id}`}>{hotel.name}</Link>
-                  </h3>
+                <div
+                  className={`d-flex justify-content-between ${style.pname}`}
+                >
+                  <h4>
+                    <Link className={style.pname} href={`/rooms/${hotel._id}`}>
+                      {hotel.name}
+                    </Link>
+                  </h4>
                   <p>
                     <AiFillStar /> {hotel.rating}
                   </p>
                 </div>
                 <p className={style.pnamee}>{hotel.type}</p>
-
-                <p className={style.pnamee}>{hotel.desc}</p>
-                <p></p>
-                <p style={{fontWeight:"600"}}>
-                  ${hotel.cheapestPrice} <span style={{fontWeight:"400"}} className="fs-6">night</span>
+                <p className={style.pnamee}>{hotel.distance}</p>
+                <p style={{ fontWeight: "600" }}>
+                  ${hotel.cheapestPrice}
+                  <span style={{ fontWeight: "400" }} className="fs-6">
+                    night
+                  </span>
                 </p>
               </div>
             ))}
