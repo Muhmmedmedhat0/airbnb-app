@@ -8,29 +8,20 @@ import { login, reset } from '../../../app/slices/auth/authSlice';
 function Login(props) {
   let [your_email, setEmail] = useState("");
   let [pass, setPass] = useState("");
- 
-  
-  // const navigate = useNavigate()
   const dispatch = useDispatch()
-
   const { user, isLoading, isError, isSuccess, message } = useSelector(
     (state) => state.auth
   )
-
-  useEffect(() => {
-    if (isError) {
-      // toast.error(message)
+  // useEffect(() => {
+  //   if (isError) {
+  //     // toast.error(message)
       
-    }
-
-    if (isSuccess || user) {
-      // navigate('/')
-    }
-
-    dispatch(reset())
-  }, [user, isError, isSuccess, message, dispatch])
-
-
+  //   }
+  //   if (isSuccess || user) {
+  //     // navigate('/')
+  //   }
+  //   dispatch(reset())
+  // }, [user, isError, isSuccess, message, dispatch])
   let onLogin = (e) => {
     e.preventDefault();
     const loginData={
@@ -39,13 +30,8 @@ function Login(props) {
   
     }
     dispatch(login(loginData))
-
-  //   axios.post("http://localhost:9000/api/auth/login",loginData).then(res=>{console.log(res.data)
-  // localStorage.setItem('user',JSON.stringify(res.data.user))
-  // });
     props.setTrigger(false);
     closePopup();
-
   };
 
   let closePopup = () => {

@@ -143,9 +143,10 @@ function FilterNav() {
             mouseTracking
             items={items}
             responsive={responsive}
-            // disableDotsControls={f}
+            // disableDotsControls={true}
             disableButtonsControls={true}
-            // controlsStrategy="alternate"
+            controlsStrategy="alternate"
+            
             // disableSlideInfo={false}
             // keyboardNavigation={false}
             // ArrowLeft={false}

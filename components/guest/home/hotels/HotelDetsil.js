@@ -15,30 +15,13 @@ function HotelDetsil(props) {
   const router = useRouter();
   const { id } = router.query;
   console.log("id", id);
-
   const hoteldata = useSelector((state) => state.hotel);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getRoom({ id: id }));
     console.log(hoteldata);
     dispatch(setHotelInfo(hoteldata.hotels.hotel));
-  }, [hoteldata.hotels.hotel]);
-
-  const hotel = {
-    id: 1,
-    title: "Nature Observatory on Secluded Island",
-    rate: 44,
-    price: 555,
-    images: [
-      "https://a0.muscache.com/im/pictures/4d268e76-949f-4de7-a10b-b4b48ea3355d.jpg?im_w=960",
-      "https://a0.muscache.com/im/pictures/4d268e76-949f-4de7-a10b-b4b48ea3355d.jpg?im_w=960",
-      "https://a0.muscache.com/im/pictures/4f4e82b1-3270-4c5a-9628-83ab64ae8f58.jpg?im_w=720",
-      "https://a0.muscache.com/im/pictures/fe2a079c-e2b3-4832-b814-5295abf411ea.jpg?im_w=720",
-    ],
-    desc: "fjbhhvbh  eifhbuwefw fiwbcuwj joen ",
-    date: 7 - 7 - 2005,
-  };
-
+  }, []);
   return (
     <div className={style.hotelDetails}>
       {console.log(props.Rid)}
@@ -46,16 +29,16 @@ function HotelDetsil(props) {
       {hoteldata.hotels.hotel && (
         <div className="container">
           <div className={style.mainHotelInfo}>
-            <h2>{hotel.title}</h2>
+            <h2>{hoteldata.hotels.hotel.title}</h2>
             <div
               className={` ${style.mainHotelInfoContent} d-flex justify-content-between`}
             >
               <p>
                 <span>
-                  <AiFillStar /> 4.61.{" "}
+                  <AiFillStar /> {hoteldata.hotels.hotel.rating}.
                 </span>{" "}
-                <Link href=""> 18 reviews </Link>
-                <Link href=""> Skålen, Örebro län, Sweden</Link>
+                <p className="d-inline text-decoration-underline"> 18. reviews </p>
+                <p className="d-inline text-decoration-underline"> {hoteldata.hotels.hotel.address}</p>
               </p>
               <p>
                 <span>
@@ -69,7 +52,7 @@ function HotelDetsil(props) {
               </p>
             </div>
           </div>
-          <DetailsImages images={hotel.images} />
+          <DetailsImages images={hoteldata.hotels.hotel.images} />
           <p>{hoteldata.hotels.hotel.name}</p>
           <div
             className={`${style.info} d-flex justify-content-between flex-wrap`}
@@ -77,8 +60,6 @@ function HotelDetsil(props) {
             <HostDetailsInfo />
             <div className="formContainer">
               <BookingForm />
-
-              {/* <p>Report this listing</p> */}
             </div>
           </div>
         </div>

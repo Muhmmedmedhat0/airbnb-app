@@ -27,7 +27,7 @@ function Cards() {
        filterArr = hoteldata.hotels.hotels;
       setFilterData(filterArr);
     }
-  }, [hoteldata.hotels]);
+  }, [hoteldata.hotels.hotels]);
   const addtoWishList = (hotel) => {
     dispatch(setWishList(hotel));
     setHeartColor(true);
@@ -48,9 +48,7 @@ function Cards() {
                     {heartColor?(<AiFillHeart key={index}/>):(<AiOutlineHeart key={index} />)}
                   </button>
                 </div>
-                <Link href={`/rooms/${hotel.id}`}>
                   <CardSlider dumImg={hotel.images} hotID={index} />
-                </Link>
                 <div
                   className={`d-flex justify-content-between ${style.pname}`}
                 >

@@ -24,7 +24,7 @@ function Registration(props) {
       // navigate('/')
     }
 
-    dispatch(reset())
+    // dispatch(reset())
   }, [user, isError, isSuccess, message, dispatch])
 
   let onRegister = (e) => {
