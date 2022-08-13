@@ -14,7 +14,7 @@ import { logout, reset } from "../../../app/slices/auth/authSlice";
 
 function MainNav() {
   const dispatch = useDispatch();
-  const { user } = useSelector((state) => state.auth);
+  const  user = useSelector((state) => state.auth);
   const [LpopupBtn, setLpopupBtn] = useState(false);
   const [RpopupBtn, setRpopupBtn] = useState(false);
 
@@ -65,7 +65,7 @@ function MainNav() {
               </button>
               <ul className="dropdown-menu">
                 {console.log("user", user)}
-                {!user ? (
+                {!user.isSuccess ? (
                   <>
                     <li>
                       <a
@@ -133,7 +133,7 @@ function MainNav() {
                     Help
                   </a>
                 </li>
-                {user ? (
+                {user.isSuccess ? (
                   <li onClick={onLogout}>
                     <a className="dropdown-item" href="#">
                       Logout
