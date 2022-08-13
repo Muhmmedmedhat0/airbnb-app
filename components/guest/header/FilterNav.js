@@ -136,24 +136,25 @@ function FilterNav() {
 
     <div className="container">
       <div
-        className={`d-flex flex-wrap justify-content-around  ${style.filterBox}`}
+        className={`d-flex flex-wrap justify-content-center  ${style.filterBox}`}
       >
         <div className={style.filterIconsBar}>
           <AliceCarousel
             mouseTracking
             items={items}
             responsive={responsive}
-            disableDotsControls={true}
-            controlsStrategy="alternate"
+            // disableDotsControls={f}
+            disableButtonsControls={true}
+            // controlsStrategy="alternate"
             // disableSlideInfo={false}
-            // keyboardNavigation={ArrowLeft}
+            // keyboardNavigation={false}
             // ArrowLeft={false}
           />
         </div>
-        <div className={`d-flex justify-content-between ${style.filterNavTp} ${style.bosStyle}`}>
+        {/* <div className={`d-flex justify-content-between ${style.filterNavTp} ${style.bosStyle}`}>
           <p>filter</p>
           <AiOutlineFilter />
-        </div>
+        </div> */}
       </div>
       </div>
     </div>

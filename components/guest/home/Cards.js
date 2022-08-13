@@ -27,7 +27,7 @@ function Cards() {
        filterArr = hoteldata.hotels.hotels;
       setFilterData(filterArr);
     }
-  }, [hoteldata.hotels.hotels]);
+  }, [hoteldata.hotels]);
   const addtoWishList = (hotel) => {
     dispatch(setWishList(hotel));
     setHeartColor(true);

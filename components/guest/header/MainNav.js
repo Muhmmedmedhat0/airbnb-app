@@ -15,7 +15,6 @@ import { logout, reset } from "../../../app/slices/auth/authSlice";
 function MainNav() {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.auth);
-
   const [LpopupBtn, setLpopupBtn] = useState(false);
   const [RpopupBtn, setRpopupBtn] = useState(false);
 
@@ -25,13 +24,19 @@ function MainNav() {
   };
   return (
     <>
-      <nav className={`navbar py-2 navbar-expand-lg bg-white  ${style.mainNav}`}>
+      <nav
+        className={`navbar py-2 navbar-expand-lg bg-white  ${style.mainNav}`}
+      >
         <div className="container">
           <a className="navbar-brand" href="">
-          <Link href="/">
-              <div className="d-flex align-items-center">    
-                <ImageComponent src="/assets/airbnb.png" width="30" height="30" />
-                <span>airbnb</span>      
+            <Link href="/">
+              <div className="d-flex align-items-center">
+                <ImageComponent
+                  src="/assets/airbnb.png"
+                  width="30"
+                  height="30"
+                />
+                <span>airbnb</span>
               </div>
             </Link>
           </a>
@@ -80,17 +85,29 @@ function MainNav() {
                     </li>
                   </>
                 ) : (
-                  <li  className="dropdown-item">
-                    {console.log(user.name)}
-                    <Link
-                      href={`/users/profile/${user._id}`}
-                      className="dropdown-item"
-                    >
-                      Profile
-                    </Link>
-                  </li>
+                  <>
+                    {" "}
+                    <li className="dropdown-item">
+                      {console.log(user.name)}
+                      <Link
+                        href={`/users/profile/${user._id}`}
+                        className="dropdown-item"
+                      >
+                        Profile
+                      </Link>
+                    </li>
+                    <li className="dropdown-item">
+                      {console.log(user.name)}
+                      <Link
+                        href={`/users/host/dashboard`}
+                        className="dropdown-item"
+                      >
+                        dashboard
+                      </Link>
+                    </li>
+                  </>
                 )}
-                <hr style={{color:"#222222"}}></hr>
+                <hr style={{ color: "#222222" }}></hr>
                 <li>
                   <Link href={`/trips`}>
                     <a className="dropdown-item">Trips</a>

@@ -1,10 +1,7 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import style from "../../../styles/login.module.scss";
 import { useSelector, useDispatch } from 'react-redux';
-// import { useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
 import { login, reset } from '../../../app/slices/auth/authSlice';
 
 

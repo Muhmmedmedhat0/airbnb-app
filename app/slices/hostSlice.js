@@ -13,7 +13,13 @@ export const insertHotel = createAsyncThunk("hotel/insertHotel", () => {
       .post("http://localhost:9000/api/hotels",JSON.stringify(hotel))
       .then((response) => response.data);
   });
-// console.log(hotel)
+  export const BecomeHost = createAsyncThunk("hotel/BecomeHost", () => {
+    return axios
+      .post("http://localhost:9000/api/hotels",JSON.stringify(hotel))
+      .then((response) => response.data);
+  });
+
+  // console.log(hotel)
 // return hotel;
 // })
 
