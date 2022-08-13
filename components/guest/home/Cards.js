@@ -16,14 +16,15 @@ function Cards() {
   useEffect(() => {
     dispatch(fetchHotels());
     setFilterData(hoteldata.hotels.hotels);
+    let filterArr = hoteldata.hotels.hotels;
     if (filterType != "") {
-      let searchVal = "hilton";
-      let filterArr = hoteldata.hotels.hotels.filter((item) => {
+      let searchVal = filterType.toLowerCase();
+       filterArr = hoteldata.hotels.hotels.filter((item) => {
         return item.type.toLowerCase().includes(`${searchVal}`);
       });
       setFilterData(filterArr);
     } else {
-      let filterArr = hoteldata.hotels.hotels;
+       filterArr = hoteldata.hotels.hotels;
       setFilterData(filterArr);
     }
   }, [hoteldata.hotels.hotels]);
@@ -65,7 +66,7 @@ function Cards() {
                 <p className={style.pnamee}>{hotel.type}</p>
                 <p className={style.pnamee}>{hotel.distance}</p>
                 <p style={{ fontWeight: "600" }}>
-                  ${hotel.cheapestPrice}
+                  ${hotel.cheapestPrice}{" "}
                   <span style={{ fontWeight: "400" }} className="fs-6">
                     night
                   </span>

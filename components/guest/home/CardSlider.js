@@ -7,8 +7,6 @@ function CardSlider({ dumImg, hotID }) {
   };
   return (
     <>
-      {/* {console.log(dumImg)} */}
-      {/* <p>{dumImg}</p> */}
       <div
         id={`carouselExampleIndicators${hotID}`}
         className="carousel slide"
@@ -40,7 +38,7 @@ function CardSlider({ dumImg, hotID }) {
           <div className="carousel-item active">
             <Image
               loader={myLoader}
-              src={`http://localhost:9000/${dumImg}`}
+              src={`http://localhost:9000/${dumImg[0]}`}
               width="500"
               height="500"
               className="d-block w-100"
@@ -51,7 +49,7 @@ function CardSlider({ dumImg, hotID }) {
             {" "}
             <Image
               loader={myLoader}
-              src={`http://localhost:9000/${dumImg}`}
+              src={`http://localhost:9000/${dumImg[1]}`}
               width="500"
               height="500"
               className="d-block w-100"
@@ -61,7 +59,7 @@ function CardSlider({ dumImg, hotID }) {
           <div className="carousel-item">
             <Image
               loader={myLoader}
-              src={`http://localhost:9000/${dumImg}`}
+              src={`http://localhost:9000/${dumImg[2]}`}
               width="500"
               height="500"
               className="d-block w-100"

@@ -2,7 +2,6 @@ import React from "react";
 import style from "../../../styles/filterNav.module.scss";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
-import Image from "next/image";
 import { AiOutlineFilter } from "react-icons/ai";
 import ImageComponent from "../../shared/ImageComponent";
 import { useDispatch, useSelector } from "react-redux";
@@ -15,12 +14,12 @@ function FilterNav() {
   const responsive = {
     0: { items: 3 },
     568: { items: 5 },
-    1024: { items: 7 },
+    1024: { items: 9 },
   };
 
   const items = [
     <div key={0} className="item" data-value="1" onClick={()=>{
-      dispatch(getType("islands"))
+      dispatch(getType("island"))
     }}>
       <ImageComponent
         src="https://a0.muscache.com/pictures/8e507f16-4943-4be9-b707-59bd38d56309.jpg"
@@ -43,19 +42,28 @@ function FilterNav() {
       />
       <p>beach</p>
     </div>,
-    <div key={2} className="item" data-value="3"  onClick={()=>{
-      dispatch(getType("parks"))
-    }}>
-      <ImageComponent
-        src="https://a0.muscache.com/pictures/c0a24c04-ce1f-490c-833f-987613930eca.jpg"
-        width="25"
-        height="25"
-        alt="fkjjf"
-      />
-      <p onClick={console.log("mona")}>National parks</p>
-    </div>,
+        <div key={3} className="item" data-value="4" onClick={()=>{
+          dispatch(getType("Shared homes"))}}>
+        <ImageComponent
+          src="https://a0.muscache.com/pictures/52c8d856-33d0-445a-a040-a162374de100.jpg"
+          width="25"
+          height="25"
+          alt="fkjjf"
+        />
+        <p>Shared homes</p>
+      </div>,
+      <div key={4} className="item" data-value="5" onClick={()=>{
+        dispatch(getType("Cave"))}}>
+        <ImageComponent
+          src="https://a0.muscache.com/pictures/4221e293-4770-4ea8-a4fa-9972158d4004.jpg"
+          width="25"
+          height="25"
+          alt="fkjjf"
+        />
+        <p>Caves</p>
+      </div>,
     <div key={3} className="item" data-value="4"  onClick={()=>{
-      dispatch(getType("pools"))
+      dispatch(getType("pool"))
     }}>
 
       <ImageComponent
@@ -66,7 +74,8 @@ function FilterNav() {
       />
       <p>Amazing pools</p>
     </div>,
-    <div key={4} className="item" data-value="5">
+    <div key={4} className="item" data-value="5" onClick={()=>{
+      dispatch(getType("OMG"))}}>
       <ImageComponent
         src="https://a0.muscache.com/pictures/c5a4f6fc-c92c-4ae8-87dd-57f1ff1b89a6.jpg"
         width="25"
@@ -102,24 +111,6 @@ function FilterNav() {
       />
       <p>Design</p>
     </div>,
-    <div key={3} className="item" data-value="4">
-      <ImageComponent
-        src="https://a0.muscache.com/pictures/52c8d856-33d0-445a-a040-a162374de100.jpg"
-        width="25"
-        height="25"
-        alt="fkjjf"
-      />
-      <p>Shared homes</p>
-    </div>,
-    <div key={4} className="item" data-value="5">
-      <ImageComponent
-        src="https://a0.muscache.com/pictures/4221e293-4770-4ea8-a4fa-9972158d4004.jpg"
-        width="25"
-        height="25"
-        alt="fkjjf"
-      />
-      <p>Caves</p>
-    </div>,
     <div key={4} className="item" data-value="5">
       <ImageComponent
         src="https://a0.muscache.com/pictures/957f8022-dfd7-426c-99fd-77ed792f6d7a.jpg"
@@ -127,6 +118,17 @@ function FilterNav() {
         height="25"
       />
       <p>Surfing</p>
+    </div>,
+    <div key={2} className="item" data-value="3"  onClick={()=>{
+      dispatch(getType("parks"))
+    }}>
+      <ImageComponent
+        src="https://a0.muscache.com/pictures/c0a24c04-ce1f-490c-833f-987613930eca.jpg"
+        width="25"
+        height="25"
+        alt="fkjjf"
+      />
+      <p onClick={console.log("mona")}>National parks</p>
     </div>,
   ];
   return (

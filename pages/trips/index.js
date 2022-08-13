@@ -14,7 +14,7 @@ export default function Trips() {
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
     return diffDays;
   };
-  const tripsData = useSelector((state) => state.trips.tripMainInfo);
+  const tripsData = useSelector((state) => state.trips.tripAllInfo);
   console.log(tripsData);
   const [trip, setTrip] = useState(tripsData);
   return (
@@ -28,23 +28,27 @@ export default function Trips() {
       <hr />
       <div className={style.container}>
         <div className="d-flex flex-wrap justify-content-between">
-          {tripsData.hotel ? (
-            <div className={style.homeCardBox}>
-              <CardSlider dumImg={trip.hotel.images} hotID="2" />
-              <div className="d-flex justify-content-between">
-                <h3>
-                  <Link href=" ">{trip.hotel.name}</Link>
-                </h3>
-              </div>
-              <p>From : {trip.startDate} </p>
-              <p>To : {trip.endDate}</p>
-              <p>
-                Total :{" "}
-                {getDates(trip.startDate, trip.endDate) *
-                  trip.hotel.cheapestPrice}{" "}
-                $
-              </p>
-            </div>
+          {trip ? (
+            <>
+              {trip.map((trip, index) => (
+                <div key={index} className={style.homeCardBox}>
+                  <CardSlider dumImg={trip.hotel.images} hotID="2" />
+                  <div className="d-flex justify-content-between">
+                    <h3>
+                      <Link href={`/${trip.hotel._id}`}>{trip.hotel.name}</Link>
+                    </h3>
+                  </div>
+                  <p>From : {trip.startDate} </p>
+                  <p>To : {trip.endDate}</p>
+                  <p>
+                    Total :{" "}
+                    {getDates(trip.startDate, trip.endDate) *
+                      trip.hotel.cheapestPrice}{" "}
+                    $
+                  </p>
+                </div>
+              ))}
+            </>
           ) : (
             <EmptyList />
           )}
