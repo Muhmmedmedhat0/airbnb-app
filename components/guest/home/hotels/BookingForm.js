@@ -9,7 +9,7 @@ import {
   setStartDate,
 } from "../../../../app/slices/tripsSlice";
 
-function BookingForm() {
+function BookingForm(props) {
   const dispatch = useDispatch();
   let [startDate, SetSDate] = useState("");
   let [endDate, setENDDate] = useState("");
@@ -18,6 +18,8 @@ function BookingForm() {
     dispatch(setGuests(guest));
     dispatch(setStartDate(startDate));
     dispatch(setEndDate(endDate));
+    // dispatch(setHotelInfo(props.hotelData))
+
   };
   return (
     <div className={`${style.bookinSection}`}>

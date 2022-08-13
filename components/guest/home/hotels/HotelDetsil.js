@@ -21,7 +21,7 @@ function HotelDetsil(props) {
     dispatch(getRoom({ id: id }));
     console.log(hoteldata);
     dispatch(setHotelInfo(hoteldata.hotels.hotel));
-  }, []);
+  }, [hoteldata.hotels.hotel]);
   return (
     <div className={style.hotelDetails}>
       {console.log(props.Rid)}
@@ -59,7 +59,7 @@ function HotelDetsil(props) {
           >
             <HostDetailsInfo />
             <div className="formContainer">
-              <BookingForm />
+              <BookingForm   />
             </div>
           </div>
         </div>

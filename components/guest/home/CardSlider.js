@@ -31,7 +31,7 @@ function CardSlider({ dumImg, hotID }) {
             type="button"
             data-bs-target={`#carouselExampleIndicators${hotID}`}
             data-bs-slide-to="2"
-            aria-label="Slide 3"
+            aria-label="Slide 3" 
           ></button>
         </div>
         <div className="carousel-inner">

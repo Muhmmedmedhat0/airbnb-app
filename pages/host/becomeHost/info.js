@@ -9,7 +9,7 @@ function info() {
       <Main text="Let's give your place a name, description and set your price"/>
         <PlaceInfo
         nextHref="/host/becomeHost/photos" 
-        backHref="/host/becomeHost/info" />
+        backHref="/users/host/dashboard" />
     </div>
   )
 }

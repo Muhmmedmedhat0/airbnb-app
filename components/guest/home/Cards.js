@@ -35,7 +35,7 @@ function Cards() {
   return (
     <>
       <div className={style.container}>
-        <div className="d-flex flex-wrap justify-content-between">
+        <div className="d-flex flex-wrap justify-content-around">
           {filterData &&
             filterData.map((hotel, index) => (
               <div key={hotel.id} className={style.homeCardBox}>

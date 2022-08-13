@@ -3,6 +3,7 @@ import axios from "axios";
 
 const initialState = {
   hotel: {},
+  hotels:[],
   user:{},
   isError: false,
   isSuccess: false,
@@ -65,6 +66,10 @@ export const hostSlice = createSlice({
     setHostImage: (state, action) => {
       state.hotel.images = action.payload;
     },
+    
+    setAllHotels: (state, action) => {
+      state.hotels.push(state.hotel) ;
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(insertHotel.fulfilled, (state, action) => {
@@ -102,6 +107,7 @@ export const {
   setAddress,
   setHostImage,
   setHostCity,
+  setAllHotels
 } = hostSlice.actions;
 
 export default hostSlice.reducer;
