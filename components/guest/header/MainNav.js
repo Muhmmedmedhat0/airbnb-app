@@ -25,7 +25,7 @@ function MainNav() {
   };
   return (
     <>
-      <nav className={`navbar my-2 py-2 navbar-expand-lg bg-white  ${style.mainNav}`}>
+      <nav className={`navbar py-2 navbar-expand-lg bg-white  ${style.mainNav}`}>
         <div className="container">
           <a className="navbar-brand" href="">
           <Link href="/">
