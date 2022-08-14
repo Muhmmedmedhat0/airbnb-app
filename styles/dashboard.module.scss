@@ -23,12 +23,17 @@
     background: #FFFFFF !important;
     border-radius: 12px !important;
     width: 25%;
+    max-width: 25%;
     padding: 1%;
     margin: 1%;
     width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  text-align: left;
- 
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+.para{
+  font-size: 1.2em;
+  margin: 1%;
+  padding: 1%;
 }
