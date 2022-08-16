@@ -11,7 +11,6 @@ function footer() {
             <li><p>© 2022 Airbnb, Inc.  Privacy  .Terms  .Sitemap</p></li>
           </ul>
         </div>
-
         <div className='col-md-3 ml-auto p-2'>
           <ul className={style.fUl}>
             <li id={style.icons}>

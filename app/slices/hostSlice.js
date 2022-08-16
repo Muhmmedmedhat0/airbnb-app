@@ -18,18 +18,14 @@ export const insertHotel = createAsyncThunk("hotel/insertHotel", () => {
     .body(JSON.stringify(hotel))
     .then((response) => response.data);
 });
-export const BecomeHost = createAsyncThunk("hotel/BecomeHost", async (id) => {
+export const BecomeHost = createAsyncThunk("hotel/BecomeHost", async (obj) => {
   console.log(id);
-
-  const response = await axios.put(`http://localhost:9000/api/users/${id}`, {
+  const response = await axios.put(`http://localhost:9000/api/users/${obj.id}`, {
     headers: {
       "Content-Type": "application/json; charset=utf-8",
     },
-    body: {
-      isAdmin: "host",
-    },
+    body:JSON.stringify(obj.isAdmin)
   });
-  console.log(id);
   return response.data;
 });
 
@@ -82,6 +78,13 @@ export const hostSlice = createSlice({
       console.log(action.payload);
     });
 
+    builder.addCase(BecomeHost.pending, (state, action) => {
+      state.user = action.payload;
+      // console.log()
+      console.log(action.error.message);
+      console.log(action.payload);
+      // state.error;
+    });
     builder.addCase(BecomeHost.fulfilled, (state, action) => {
       state.user = action.payload;
       // console.log()

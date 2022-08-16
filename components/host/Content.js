@@ -6,13 +6,17 @@ import { BecomeHost } from "../../app/slices/hostSlice";
 
 function Content(props) {
   // const hoteldata = useSelector((state) => state.hotel);
-
   const userId= useSelector((state)=>state.auth.user._id)
+
+  const obj={
+    id:userId,
+      isAdmin: "host"
+  }
   const dispatch = useDispatch();
   const tryHosting = () => {
     if(props.checkTry=="tryNow"){
     console.log(userId);
-    dispatch(BecomeHost(userId));
+    dispatch(BecomeHost(obj));
     }
   };
   return (

@@ -4,7 +4,6 @@ import MainNav from '../../components/guest/header/MainNav'
 import HotelDetsil from '../../components/guest/home/hotels/HotelDetsil';
 import Footer from "../../components/shared/footer/Footer";
 import { useRouter } from 'next/router'
-
 function Hotel() {
   const router = useRouter()
   const { id } = router.query
@@ -13,7 +12,6 @@ function Hotel() {
     <>
       <header className='fixed-top'>
         <MainNav />
-
       </header>
       <main >
         {console.log(id)}

@@ -1,5 +1,4 @@
 import Footer from "../components/shared/footer/Footer";
-import Counter from "../components/counter/counter";
 import Theme from "../components/Theme/Theme";
 import MainNav from "../components/guest/header/MainNav";
 import FilterNav from "../components/guest/header/FilterNav";

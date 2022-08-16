@@ -100,6 +100,6 @@ export const authSlice = createSlice({
       })
   },
 })
-
+/// update user => become Host 
 export const { reset } = authSlice.actions
 export default authSlice.reducer
