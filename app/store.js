@@ -5,15 +5,16 @@ import filterSlice from './slices/filterSlice';
 import hostSlice from './slices/hostSlice';
 import wishListSlice from './slices/wishListSlice';
 import tripsSlice from './slices/tripsSlice';
+import user from './slices/userSlice';
 
 export default configureStore({
   reducer: {
-    hotel:hotelSlice,
+    hotel: hotelSlice,
     auth: authReducer,
-    filterType:filterSlice,
-    host:hostSlice,
-    wishList:wishListSlice,
-    trips:tripsSlice,
-
+    filterType: filterSlice,
+    host: hostSlice,
+    wishList: wishListSlice,
+    trips: tripsSlice,
+    user,
   },
 });

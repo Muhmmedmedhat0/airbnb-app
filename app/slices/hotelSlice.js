@@ -10,12 +10,12 @@ const initialState = {
 export const fetchHotels = createAsyncThunk("hotel/fetchHotels", () => {
   
   return axios
-    .get("http://localhost:9000/api/hotels")
+    .get("http://localhost:8080/api/hotels")
     .then((response) => response.data);
 });
 export const getRoom = createAsyncThunk(
   `room/getRoom`,  (hotel, thunkAPI) => {
-    return axios.get(`http://localhost:9000/api/hotels/find/${hotel.id}`).then((response)=>response.data)
+    return axios.get(`http://localhost:8080/api/hotels/find/${hotel.id}`).then((response)=>response.data)
   });
 
 const hotelSlice = createSlice({

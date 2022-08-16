@@ -3,7 +3,7 @@ import axios from 'axios'
 // Login user
 const register = async (userData) => {
   console.log(userData)
-  const response = await axios.post('http://localhost:9000/api/auth/signup', userData)
+  const response = await axios.post('http://localhost:8080/api/auth/signup', userData)
   console.log(response)
 
   if (response.data) {
@@ -15,7 +15,7 @@ const register = async (userData) => {
 
 const login = async (userData) => {
   console.log(userData)
-  const response = await axios.post('http://localhost:9000/api/auth/login', userData)
+  const response = await axios.post('http://localhost:8080/api/auth/login', userData)
   console.log(response)
 
   if (response.data) {
