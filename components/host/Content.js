@@ -6,7 +6,6 @@ import { updateUser } from '../../app/slices/userSlice';
 
 function Content(props) {
   const dispatch = useDispatch();
-  // const { user } = useSelector((state) => state.user);
   const { user } = useSelector((state) => state.auth);
   console.log(user);
   const data = {
@@ -21,7 +20,6 @@ function Content(props) {
   return (
     <div className={style.myDiv}>
       <header className={style.header}>{props.text}</header>
-
       <Link href={`${props.href}`}>
         <button className={style.btn} onClick={tryHosting}>
           {props.btnText}

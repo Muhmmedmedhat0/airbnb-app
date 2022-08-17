@@ -18,6 +18,9 @@ export const getRoom = createAsyncThunk(
     return axios.get(`http://localhost:8080/api/hotels/find/${hotel.id}`).then((response)=>response.data)
   });
 
+
+
+
 const hotelSlice = createSlice({
   name: "hotel",
   initialState,

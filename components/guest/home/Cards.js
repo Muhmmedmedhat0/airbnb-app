@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
-import style from "../../../styles/home.module.scss";
-import CardSlider from "./CardSlider";
-import { AiFillHeart, AiFillStar, AiOutlineHeart } from "react-icons/ai";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchHotels } from "../../../app/slices/hotelSlice";
-import { setWishList } from "../../../app/slices/wishListSlice";
-import Link from "next/link";
+import React, { useEffect, useState } from 'react';
+import style from '../../../styles/home.module.scss';
+import CardSlider from './CardSlider';
+import { AiFillHeart, AiFillStar, AiOutlineHeart } from 'react-icons/ai';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchHotels } from '../../../app/slices/hotelSlice';
+import { setWishList } from '../../../app/slices/wishListSlice';
+import Link from 'next/link';
 
 function Cards() {
   const hoteldata = useSelector((state) => state.hotel);
@@ -17,14 +17,14 @@ function Cards() {
     dispatch(fetchHotels());
     setFilterData(hoteldata.hotels.hotels);
     let filterArr = hoteldata.hotels.hotels;
-    if (filterType != "") {
+    if (filterType != '') {
       let searchVal = filterType.toLowerCase();
-       filterArr = hoteldata.hotels.hotels.filter((item) => {
+      filterArr = hoteldata.hotels.hotels.filter((item) => {
         return item.type.toLowerCase().includes(`${searchVal}`);
       });
       setFilterData(filterArr);
     } else {
-       filterArr = hoteldata.hotels.hotels;
+      filterArr = hoteldata.hotels.hotels;
       setFilterData(filterArr);
     }
   }, [hoteldata.hotels.hotels]);
@@ -36,7 +36,7 @@ function Cards() {
     <>
       <div className={style.container}>
         <div className="d-flex flex-wrap justify-content-around">
-          {filterData &&
+          {/* {filterData &&
             filterData.map((hotel, index) => (
               <div key={hotel.id} className={style.homeCardBox}>
                 <div className={style.CardBoxHeartIcon}>
@@ -45,10 +45,14 @@ function Cards() {
                       addtoWishList(hotel);
                     }}
                   >
-                    {heartColor?(<AiFillHeart key={index}/>):(<AiOutlineHeart key={index} />)}
+                    {heartColor ? (
+                      <AiFillHeart key={index} />
+                    ) : (
+                      <AiOutlineHeart key={index} />
+                    )}
                   </button>
                 </div>
-                  <CardSlider dumImg={hotel.images} hotID={index} />
+                <CardSlider dumImg={hotel.images} hotID={index} />
                 <div
                   className={`d-flex justify-content-between ${style.pname}`}
                 >
@@ -63,14 +67,14 @@ function Cards() {
                 </div>
                 <p className={style.pnamee}>{hotel.type}</p>
                 <p className={style.pnamee}>{hotel.distance}</p>
-                <p style={{ fontWeight: "600" }}>
-                  ${hotel.cheapestPrice}{" "}
-                  <span style={{ fontWeight: "400" }} className="fs-6">
+                <p style={{ fontWeight: '600' }}>
+                  ${hotel.cheapestPrice}{' '}
+                  <span style={{ fontWeight: '400' }} className="fs-6">
                     night
                   </span>
                 </p>
               </div>
-            ))}
+            ))} */}
         </div>
       </div>
     </>

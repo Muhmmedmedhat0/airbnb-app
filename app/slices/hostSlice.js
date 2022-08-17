@@ -1,45 +1,47 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 const initialState = {
   hotel: {},
-  hotels:[],
-  user:{},
+  hotels: [],
+  user: {},
   isError: false,
   isSuccess: false,
   isLoading: false,
-  message: "",
+  message: '',
 };
-export const insertHotel = createAsyncThunk("hotel/insertHotel", () => {
-  return axios
-    .post("http://localhost:9000/api/hotels").headers(
-      {"Content-Type": "application/json; charset=utf-8"}
-    )
-    .body(JSON.stringify(hotel))
-    .then((response) => response.data);
-});
-export const BecomeHost = createAsyncThunk("hotel/BecomeHost", async (obj) => {
-  console.log(id);
-  const response = await axios.put(`http://localhost:9000/api/users/${obj.id}`, {
-    headers: {
-      "Content-Type": "application/json; charset=utf-8",
-    },
-    body:JSON.stringify(obj.isAdmin)
-  });
-  return response.data;
-});
+
+// inser hotel
+export const insertHotel = createAsyncThunk(
+  `hotel/insertHotel`,
+  async (hotel, thunkAPI) => {
+    const { rejectWithValue } = thunkAPI;
+    try {
+      const response = await fetch(`http://localhost:8080/api/hotels/`, {
+        method: 'POST',
+        body: JSON.stringify(hotel),
+        headers: {
+          // 'Content-Type': 'multipart/form-data',
+          'Content-Type': 'application/json',
+          token: localStorage.getItem('token'),
+        },
+      });
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      return rejectWithValue(error);
+    }
+  }
+);
 
 export const hostSlice = createSlice({
-  name: "host",
+  name: 'host',
   initialState,
 
   reducers: {
     setPlaceType: (state, action) => {
       state.hotel.type = action.payload;
-      state.hotel.distance = "555.5k";
-      state.hotel.rating = "5";
-      state.hotel.rating = "5";
-      state.hotel.creator = "62f5ac55b739a40996de9187";
+      state.hotel.distance = '555.5k';
+      state.hotel.rating = '5';
     },
     setSpaceType: (state, action) => {
       state.hotel.name = action.payload;
@@ -60,45 +62,31 @@ export const hostSlice = createSlice({
       state.hotel.title = action.payload;
     },
     setHostImage: (state, action) => {
-      state.hotel.images = action.payload;
+      // state.hotel.images = action.payload;
     },
-    
+
     setAllHotels: (state, action) => {
-      state.hotels.push(state.hotel) ;
+      state.hotels.push(state.hotel);
     },
   },
-  extraReducers: (builder) => {
-    builder.addCase(insertHotel.fulfilled, (state, action) => {
-      state.hotel = action.payload;
+  extraReducers: {
+    // insert hotel
+    [insertHotel.pending]: (state, action) => {
+      state.isLoading = true;
+      state.isError = false;
       console.log(action.payload);
-      state.error;
-    });
-    builder.addCase(insertHotel.rejected, (state, action) => {
-      state.error = action.error.message;
+    },
+    [insertHotel.fulfilled]: (state, action) => {
+      state.isLoading = false;
+      state.isSuccess = true;
+      state.hotels.push(action.payload);
       console.log(action.payload);
-    });
-
-    builder.addCase(BecomeHost.pending, (state, action) => {
-      state.user = action.payload;
-      // console.log()
-      console.log(action.error.message);
+    },
+    [insertHotel.rejected]: (state, action) => {
+      state.isLoading = false;
+      state.isError = action.payload;
       console.log(action.payload);
-      // state.error;
-    });
-    builder.addCase(BecomeHost.fulfilled, (state, action) => {
-      state.user = action.payload;
-      // console.log()
-      console.log(action.error.message);
-      console.log(action.payload);
-      // state.error;
-    });
-    builder.addCase(BecomeHost.rejected, (state, action) => {
-      state.error = action.error.message;
-      console.log(state.error);
-      console.log(action.payload);
-
-    });
-
+    },
   },
 });
 export const {
@@ -110,7 +98,7 @@ export const {
   setAddress,
   setHostImage,
   setHostCity,
-  setAllHotels
+  setAllHotels,
 } = hostSlice.actions;
 
 export default hostSlice.reducer;

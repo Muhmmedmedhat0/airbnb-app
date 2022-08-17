@@ -1,31 +1,32 @@
-import React, { useEffect, useState } from "react";
-import Link from "next/link";
-import style from "../../styles/becomeHost.module.scss";
+import React, { useEffect, useState } from 'react';
+import Link from 'next/link';
+import style from '../../styles/becomeHost.module.scss';
 import {
   setCheapestPrice,
   settitle,
   setHostDesc,
   insertHotel,
   setAllHotels,
-} from "../../app/slices/hostSlice";
-import { useDispatch } from "react-redux";
+} from '../../app/slices/hostSlice';
+import { useDispatch, useSelector } from 'react-redux';
 
 function PlaceInfo(props) {
+  const { hotel } = useSelector((state) => state.host);
   const dispatch = useDispatch();
 
-  let [title, setTitle] = useState("");
-  let [description, setDesc] = useState("");
-  let [price, setPrice] = useState("");
+  let [title, setTitle] = useState('');
+  let [description, setDesc] = useState('');
+  let [price, setPrice] = useState('');
   const InfoSubmit = () => {
     dispatch(setHostDesc(description));
     dispatch(setCheapestPrice(price));
     dispatch(settitle(title));
-    dispatch(setAllHotels());
+    console.log(hotel);
   };
-  const submitall = () => {
-    dispatch(insertHotel());
+  const submitAll = () => {
+    console.log(hotel);
+    dispatch(insertHotel(hotel));
   };
-
   return (
     <div className={style.container}>
       <div className={style.sContainer}>
@@ -74,6 +75,9 @@ function PlaceInfo(props) {
             Next
           </button>
         </Link>
+        <button className={style.nextBtn} onClick={submitAll}>
+          submit
+        </button>
       </div>
     </div>
   );

@@ -11,6 +11,7 @@ export const updateUser = createAsyncThunk(
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json',
+            token: localStorage.getItem('token'),
           },
           body: JSON.stringify(user),
         }
