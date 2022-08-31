@@ -1,5 +1,3 @@
-import { createTheme, NextUIProvider } from '@nextui-org/react';
-import { ThemeProvider as NextThemesProvider } from 'next-themes';
 import store from '../app/store';
 import { Provider } from 'react-redux';
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -9,33 +7,13 @@ import { useEffect } from 'react';
 
 
 function MyApp({ Component, pageProps }) {
-  const lightTheme = createTheme({
-    type: 'light',
-    theme: {},
-  });
-
-  const darkTheme = createTheme({
-    type: 'dark',
-    theme: {},
-  });
   useEffect(()=>{
     import("bootstrap/dist/js/bootstrap");
 },[])
   return (
-    <NextThemesProvider
-      defaultTheme="system"
-      attribute="class"
-      value={{
-        light: lightTheme.className,
-        dark: darkTheme.className,
-      }}
-    >
-      <NextUIProvider>
         <Provider store={store}>
           <Component {...pageProps} />
         </Provider>
-      </NextUIProvider>
-    </NextThemesProvider>
   );
 }
 

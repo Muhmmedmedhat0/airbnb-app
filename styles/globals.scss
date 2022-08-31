@@ -9,16 +9,23 @@ body {
 a {
   color: inherit;
   color: #000 !important;
-  text-decoration: none;
+  // text-decoration: none;
 }
 
 * {
+  // font-size: 14px;
+  // font-weight: 300;
   box-sizing: border-box;
 }
+
 p{
   padding: 0 !important;
   margin: 0 !important;
+// font-size: 14px;
 }
+// h1,h2,h3,h4,h5,h6{
+//   font-size: 14px;
+// }
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
@@ -38,4 +45,8 @@ p{
   padding: 5px 10px;
   text-align: center;
   align-self: center;
+}
+.alice-carousel__dots{
+ padding: 0;
+ margin: 3px auto !important;
 }

@@ -3,7 +3,7 @@ import axios from "axios";
 import { useSelector } from "react-redux";
 const initialState = {
   loading: false,
-  wishListData: [],
+  wishListData: '',
   error: "",
 };
 
@@ -12,7 +12,7 @@ const wishListSlice = createSlice({
   initialState,
   reducers: {
     setWishList: (state, action) => {
-      state.wishListData.push( action.payload);
+      state.wishListData=( action.payload);
     },
   },
 });

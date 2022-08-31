@@ -1,31 +1,27 @@
-import React, { useEffect, useState } from 'react';
-import Link from 'next/link';
-import style from '../../styles/becomeHost.module.scss';
+import React, { useEffect, useState } from "react";
+import Link from "next/link";
+import style from "../../styles/becomeHost.module.scss";
 import {
   setCheapestPrice,
   settitle,
   setHostDesc,
   insertHotel,
   setAllHotels,
-} from '../../app/slices/hostSlice';
-import { useDispatch, useSelector } from 'react-redux';
+} from "../../app/slices/hotelSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 function PlaceInfo(props) {
-  const { hotel } = useSelector((state) => state.host);
+  const { hotel } = useSelector((state) => state.hotel);
   const dispatch = useDispatch();
 
-  let [title, setTitle] = useState('');
-  let [description, setDesc] = useState('');
-  let [price, setPrice] = useState('');
+  let [title, setTitle] = useState("");
+  let [description, setDesc] = useState("");
+  let [price, setPrice] = useState("");
   const InfoSubmit = () => {
     dispatch(setHostDesc(description));
     dispatch(setCheapestPrice(price));
     dispatch(settitle(title));
     console.log(hotel);
-  };
-  const submitAll = () => {
-    console.log(hotel);
-    dispatch(insertHotel(hotel));
   };
   return (
     <div className={style.container}>
@@ -65,19 +61,17 @@ function PlaceInfo(props) {
         <Link href={`${props.nextHref}`}>
           <button className={style.backBtn}>Back</button>
         </Link>
-        <Link href={`${props.backHref}`}>
-          <button
-            className={style.nextBtn}
-            onClick={() => {
-              InfoSubmit();
-            }}
-          >
-            Next
-          </button>
-        </Link>
-        <button className={style.nextBtn} onClick={submitAll}>
-          submit
+        <Link href={"/user/newhosting"} ><button
+          className={style.nextBtn}
+          onClick={() => {
+            InfoSubmit();
+          }}
+        >
+          Next
         </button>
+       
+        </Link>
+         
       </div>
     </div>
   );

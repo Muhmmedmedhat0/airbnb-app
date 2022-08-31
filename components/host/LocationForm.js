@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import style from "../../styles/becomeHost.module.scss";
 import { useDispatch, useSelector } from "react-redux";
-import { setAddress, setHostCity } from "../../app/slices/hostSlice";
+import { setAddress, setHostCity } from "../../app/slices/hotelSlice";
 
 function LocationForm(props) {
-  const type = useSelector((state) => state.host.hotel);
+  const type = useSelector((state) => state.hotel.hotel);
   const dispatch = useDispatch();
 
   let [street, setStreet] = useState("");
