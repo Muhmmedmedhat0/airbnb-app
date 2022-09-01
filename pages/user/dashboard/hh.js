@@ -9,12 +9,12 @@ function Dashboard() {
   const user = useSelector((state) => state.auth.user);
   console.log(user)
   const dispatch= useDispatch();
-  useEffect(()=>{
-    const data={
-      id:user._id
-    }
-    dispatch(getUserId(data))
-  },[data, dispatch])
+  useEffect(() => {
+    const data = {
+      id: user._id,
+    };
+    dispatch(getUserId(data));
+  }, [data, dispatch, user._id]);
 
   return (
     <>

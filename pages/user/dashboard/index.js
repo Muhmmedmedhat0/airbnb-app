@@ -10,11 +10,11 @@ function Dashboard() {
   console.log(user)
   const dispatch= useDispatch();
   useEffect(() => {
-    const data={
-      id:user._id
-    }
+    const data = {
+      id: user._id,
+    };
     dispatch(getUserId(data));
-  }, [data, dispatch]);
+  }, [data, dispatch, user._id]);
   // const hotels = useSelector((state) => state.auth.user.hotels);
 
   return (
