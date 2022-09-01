@@ -6,7 +6,7 @@ import {GrValidate} from 'react-icons/gr'
 import { useSelector } from "react-redux";
 import Link from "next/link";
 
-function profile(props) {
+function Profile(props) {
   const user = useSelector((state) => state.auth.user);
 
   return (
@@ -53,4 +53,4 @@ function profile(props) {
   );
 }
 
-export default profile;
+export default Profile;

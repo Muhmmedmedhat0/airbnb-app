@@ -29,13 +29,13 @@ function Cards() {
 
   const dispatch = useDispatch();
   useEffect(() => {
-    const user = JSON.parse(localStorage.getItem("user"));
-    const token = localStorage.getItem("token");
-    if(user){
+    const user = JSON.parse(localStorage.getItem('user'));
+    const token = localStorage.getItem('token');
+    if (user) {
       dispatch(setlogedUser(user));
     }
     dispatch(fetchHotels());
-  }, []);
+  }, [dispatch]);
   return (
     <>
       <div className="container">

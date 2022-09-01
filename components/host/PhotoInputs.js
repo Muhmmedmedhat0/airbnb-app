@@ -29,7 +29,7 @@ function PhotoInputs(props) {
         <form
           className={style.sContainer}
           // action="http://localhost:8080/images"
-           enctype="multipart/form-data"
+          encType="multipart/form-data"
           // method="POST"
         >
           <label
@@ -47,7 +47,7 @@ function PhotoInputs(props) {
             accept="image/*"
             multiple
           />
-          <input type="submit"/>
+          <input type="submit" />
           {/* <button onClick={(e)=>submitinfo(e)}></button> */}
         </form>
       </div>

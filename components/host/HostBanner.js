@@ -22,7 +22,8 @@ function HostBanner() {
               src="https://a0.muscache.com/im/pictures/f409b291-8b55-4780-81c3-a067062982d1.jpg?im_w=2560&im_q=highq"
               width={500}
               height={500}
-              className="d-block w-100"
+          className="d-block w-100"
+          alt='img'
             />
       </div>
     </div>

@@ -1,10 +1,9 @@
 import React from 'react'
-import {Button} from 'react-bootstrap';
 import {Card} from 'react-bootstrap';
 
 function MyCards() {
   return (
-    <Card style={{ width: '18rem' }}>
+    <Card style={{ width: `18rem` }}>
       <Card.Body>
         <Card.Title>Card Title</Card.Title>
         <Card.Text>

@@ -19,7 +19,7 @@ const RoomDetails = () => {
   useEffect(() => {
     dispatch(getRoom(id));
     console.log("hoteldata", hotel);
-  }, []);
+  }, [dispatch, hotel]);
 
   return (
     <>

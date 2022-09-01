@@ -14,7 +14,7 @@ function Dashboard() {
   const dispatch= useDispatch();
   useEffect(()=>{
     dispatch(getUserId(data))
-  },[])
+  },[data])
   // const hotels = useSelector((state) => state.auth.user.hotels);
 
   return (
