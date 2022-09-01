@@ -19,9 +19,9 @@ const Trips = () => {
       <hr />
       <div className={style.container}>
       <div className="d-flex flex-wrap justify-content-between">
-          {TripsData.length?(
+          {TripsData?.length?(
             <>
-              {TripsData.map((item) => (
+              {TripsData?.map((item) => (
                 <div key={item.id} className={style.homeCardBox}>
                   <div className={style.CardBoxHeartIcon}></div>
                   <CardSlider dumImg={item.images} hotID={item.id} />

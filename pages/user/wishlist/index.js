@@ -19,9 +19,9 @@ const WishList = () => {
       <hr />
       <div className={style.container}>
       <div className="d-flex flex-wrap justify-content-between">
-          {wishListData.length?(
+          {wishListData?.length?(
             <>
-              {wishListData.map((item) => (
+              {wishListData?.map((item) => (
                 <div key={item.id} className={style.homeCardBox}>
                   <div className={style.CardBoxHeartIcon}></div>
                   <CardSlider dumImg={item.images} hotID={item.id} />

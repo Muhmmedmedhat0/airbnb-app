@@ -8,13 +8,13 @@ function Dashboard() {
   // const hotels = useSelector((state) => state.auth.user.hotels);
   const user = useSelector((state) => state.auth.user);
   console.log(user)
-  const data={
-    id:user._id
-  }
   const dispatch= useDispatch();
-  useEffect(()=>{
-    dispatch(getUserId(data))
-  },[])
+  useEffect(() => {
+    const data={
+      id:user._id
+    }
+    dispatch(getUserId(data));
+  }, [data, dispatch]);
   // const hotels = useSelector((state) => state.auth.user.hotels);
 
   return (

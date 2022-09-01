@@ -8,22 +8,22 @@ function Dashboard() {
   const hotels = useSelector((state) => state.auth.user.hotels);
   const user = useSelector((state) => state.auth.user);
   console.log(user)
-  const data={
-    id:user._id
-  }
   const dispatch= useDispatch();
   useEffect(()=>{
+    const data={
+      id:user._id
+    }
     dispatch(getUserId(data))
-  },[])
+  },[data, dispatch])
 
   return (
     <>
     <HostNav/>
     <div className={style.bg}>Host Dashboard</div>
     <div className={style.Mycontainer}>
-        {hotels.length ? (
+        {hotels?.length ? (
           <>
-            {hotels.map((hotel, index) => (
+            {hotels?.map((hotel, index) => (
               <div key={index} className={`${style.cardDiv} flex-wrap`}>
                 <p className={style.para}>{hotel.title}</p>
                 <p className={style.para}>Type: {hotel.type}</p>
